@@ -1,0 +1,11 @@
+framework module ImSDK_Plus_Swift {
+  umbrella header "ImSDK_Plus_Swift.h"
+
+  export *
+  module * { export * }
+}
+
+module ImSDK_Plus_Swift.Swift {
+  header "ImSDK_Plus_Swift-Swift.h"
+  requires objc
+}

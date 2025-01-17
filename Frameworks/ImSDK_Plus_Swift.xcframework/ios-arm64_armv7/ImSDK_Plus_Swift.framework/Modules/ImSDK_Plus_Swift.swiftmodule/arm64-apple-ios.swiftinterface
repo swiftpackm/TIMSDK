@@ -1,0 +1,3510 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target arm64-apple-ios8.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -module-name ImSDK_Plus_Swift
+import Foundation
+import ObjectiveC
+import Swift
+import _Concurrency
+public enum ERROR_CODE : Swift.Int {
+  case ERR_SUCC
+  case ERR_IN_PROGESS
+  case ERR_INVALID_PARAMETERS
+  case ERR_IO_OPERATION_FAILED
+  case ERR_INVALID_JSON
+  case ERR_OUT_OF_MEMORY
+  case ERR_PARSE_RESPONSE_FAILED
+  case ERR_SERIALIZE_REQ_FAILED
+  case ERR_SDK_NOT_INITIALIZED
+  case ERR_LOADMSG_FAILED
+  case ERR_DATABASE_OPERATE_FAILED
+  case ERR_HTTP_NO_CLEARTEXT_TRAFFIC_PERMISSION
+  case ERR_SDK_COMM_CROSS_THREAD
+  case ERR_SDK_COMM_TINYID_EMPTY
+  case ERR_SDK_COMM_INVALID_IDENTIFIER
+  case ERR_SDK_COMM_FILE_NOT_FOUND
+  case ERR_SDK_COMM_FILE_TOO_LARGE
+  case ERR_SDK_COMM_FILE_SIZE_EMPTY
+  case ERR_SDK_COMM_FILE_OPEN_FAILED
+  case ERR_SDK_COMM_API_CALL_FREQUENCY_LIMIT
+  case ERR_SDK_INTERFACE_NOT_SUPPORT
+  case ERR_SDK_INVALID_OPERATION
+  case ERR_SDK_BLOCKED_BY_SENSITIVE_WORD
+  case ERR_SDK_NOT_LOGGED_IN
+  case ERR_NO_PREVIOUS_LOGIN
+  case ERR_USER_SIG_EXPIRED
+  case ERR_LOGIN_KICKED_OFF_BY_OTHER
+  case ERR_SDK_ACCOUNT_LOGIN_IN_PROCESS
+  case ERR_SDK_ACCOUNT_LOGOUT_IN_PROCESS
+  case ERR_SDK_ACCOUNT_TLS_INIT_FAILED
+  case ERR_SDK_ACCOUNT_TLS_NOT_INITIALIZED
+  case ERR_SDK_ACCOUNT_TLS_TRANSPKG_ERROR
+  case ERR_SDK_ACCOUNT_TLS_DECRYPT_FAILED
+  case ERR_SDK_ACCOUNT_TLS_REQUEST_FAILED
+  case ERR_SDK_ACCOUNT_TLS_REQUEST_TIMEOUT
+  case ERR_INVALID_CONVERSATION
+  case ERR_FILE_TRANS_AUTH_FAILED
+  case ERR_FILE_TRANS_NO_SERVER
+  case ERR_FILE_TRANS_UPLOAD_FAILED
+  case ERR_IMAGE_UPLOAD_FAILED_NOTIMAGE
+  case ERR_FILE_TRANS_DOWNLOAD_FAILED
+  case ERR_HTTP_REQ_FAILED
+  case ERR_INVALID_MSG_ELEM
+  case ERR_INVALID_SDK_OBJECT
+  case ERR_INVALID_MSG_RECEIVER
+  case ERR_SDK_MSG_BODY_SIZE_LIMIT
+  case ERR_SDK_MSG_KEY_REQ_DIFFER_RSP
+  case ERR_SDK_IMAGE_CONVERT_ERROR
+  case ERR_MERGER_MSG_LAYERS_OVER_LIMIT
+  case ERR_SDK_MSG_MODIFY_CONFLICT
+  case ERR_SDK_SIGNALING_INVALID_INVITE_ID
+  case ERR_SDK_SIGNALING_NO_PERMISSION
+  case ERR_SDK_SIGNALING_ALREADY_EXISTS
+  case ERR_SDK_GROUP_INVALID_ID
+  case ERR_SDK_GROUP_INVALID_NAME
+  case ERR_SDK_GROUP_INVALID_INTRODUCTION
+  case ERR_SDK_GROUP_INVALID_NOTIFICATION
+  case ERR_SDK_GROUP_INVALID_FACE_URL
+  case ERR_SDK_GROUP_INVALID_NAME_CARD
+  case ERR_SDK_GROUP_MEMBER_COUNT_LIMIT
+  case ERR_SDK_GROUP_JOIN_PRIVATE_GROUP_DENY
+  case ERR_SDK_GROUP_INVITE_SUPER_DENY
+  case ERR_SDK_GROUP_INVITE_NO_MEMBER
+  case ERR_SDK_GROUP_ATTR_FREQUENCY_LIMIT
+  case ERR_SDK_FRIENDSHIP_INVALID_PROFILE_KEY
+  case ERR_SDK_FRIENDSHIP_INVALID_ADD_REMARK
+  case ERR_SDK_FRIENDSHIP_INVALID_ADD_WORDING
+  case ERR_SDK_FRIENDSHIP_INVALID_ADD_SOURCE
+  case ERR_SDK_FRIENDSHIP_FRIEND_GROUP_EMPTY
+  case ERR_SDK_NET_ENCODE_FAILED
+  case ERR_SDK_NET_DECODE_FAILED
+  case ERR_SDK_NET_AUTH_INVALID
+  case ERR_SDK_NET_COMPRESS_FAILED
+  case ERR_SDK_NET_UNCOMPRESS_FAILED
+  case ERR_SDK_NET_FREQ_LIMIT
+  case ERR_SDK_NET_REQ_COUNT_LIMIT
+  case ERR_SDK_NET_DISCONNECT
+  case ERR_SDK_NET_ALLREADY_CONN
+  case ERR_SDK_NET_CONN_TIMEOUT
+  case ERR_SDK_NET_CONN_REFUSE
+  case ERR_SDK_NET_NET_UNREACH
+  case ERR_SDK_NET_SOCKET_NO_BUFF
+  case ERR_SDK_NET_RESET_BY_PEER
+  case ERR_SDK_NET_SOCKET_INVALID
+  case ERR_SDK_NET_HOST_GETADDRINFO_FAILED
+  case ERR_SDK_NET_CONNECT_RESET
+  case ERR_SDK_NET_WAIT_INQUEUE_TIMEOUT
+  case ERR_SDK_NET_WAIT_SEND_TIMEOUT
+  case ERR_SDK_NET_WAIT_ACK_TIMEOUT
+  case ERR_SDK_NET_WAIT_SEND_REMAINING_TIMEOUT
+  case ERR_SDK_NET_PKG_SIZE_LIMIT
+  case ERR_SDK_NET_WAIT_SEND_TIMEOUT_NO_NETWORK
+  case ERR_SDK_NET_WAIT_ACK_TIMEOUT_NO_NETWORK
+  case ERR_SDK_NET_SEND_REMAINING_TIMEOUT_NO_NETWORK
+  case ERR_SVR_SSO_CONNECT_LIMIT
+  case ERR_SVR_SSO_VCODE
+  case ERR_SVR_SSO_D2_EXPIRED
+  case ERR_SVR_SSO_A2_UP_INVALID
+  case ERR_SVR_SSO_A2_DOWN_INVALID
+  case ERR_SVR_SSO_EMPTY_KEY
+  case ERR_SVR_SSO_UIN_INVALID
+  case ERR_SVR_SSO_VCODE_TIMEOUT
+  case ERR_SVR_SSO_NO_IMEI_AND_A2
+  case ERR_SVR_SSO_COOKIE_INVALID
+  case ERR_SVR_SSO_DOWN_TIP
+  case ERR_SVR_SSO_DISCONNECT
+  case ERR_SVR_SSO_IDENTIFIER_INVALID
+  case ERR_SVR_SSO_CLIENT_CLOSE
+  case ERR_SVR_SSO_MSFSDK_QUIT
+  case ERR_SVR_SSO_D2KEY_WRONG
+  case ERR_SVR_SSO_UNSURPPORT
+  case ERR_SVR_SSO_PREPAID_ARREARS
+  case ERR_SVR_SSO_PACKET_WRONG
+  case ERR_SVR_SSO_APPID_BLACK_LIST
+  case ERR_SVR_SSO_CMD_BLACK_LIST
+  case ERR_SVR_SSO_APPID_WITHOUT_USING
+  case ERR_SVR_SSO_FREQ_LIMIT
+  case ERR_SVR_SSO_OVERLOAD
+  case ERR_SVR_SSO_FREQUENCY_LIMIT
+  case ERR_SVR_RES_NOT_FOUND
+  case ERR_SVR_RES_ACCESS_DENY
+  case ERR_SVR_RES_SIZE_LIMIT
+  case ERR_SVR_RES_SEND_CANCEL
+  case ERR_SVR_RES_READ_FAILED
+  case ERR_SVR_RES_TRANSFER_TIMEOUT
+  case ERR_SVR_RES_INVALID_PARAMETERS
+  case ERR_SVR_RES_INVALID_FILE_MD5
+  case ERR_SVR_RES_INVALID_PART_MD5
+  case ERR_SVR_COMM_INVALID_HTTP_URL
+  case ERR_SVR_COMM_REQ_JSON_PARSE_FAILED
+  case ERR_SVR_COMM_INVALID_ACCOUNT
+  case ERR_SVR_COMM_INVALID_ACCOUNT_EX
+  case ERR_SVR_COMM_INVALID_SDKAPPID
+  case ERR_SVR_COMM_REST_FREQ_LIMIT
+  case ERR_SVR_COMM_REQUEST_TIMEOUT
+  case ERR_SVR_COMM_INVALID_RES
+  case ERR_SVR_COMM_ID_NOT_ADMIN
+  case ERR_SVR_COMM_SDKAPPID_FREQ_LIMIT
+  case ERR_SVR_COMM_SDKAPPID_MISS
+  case ERR_SVR_COMM_RSP_JSON_PARSE_FAILED
+  case ERR_SVR_COMM_EXCHANGE_ACCOUNT_TIMEUT
+  case ERR_SVR_COMM_INVALID_ID_FORMAT
+  case ERR_SVR_COMM_SDKAPPID_FORBIDDEN
+  case ERR_SVR_COMM_REQ_FORBIDDEN
+  case ERR_SVR_COMM_REQ_FREQ_LIMIT
+  case ERR_SVR_COMM_REQ_FREQ_LIMIT_EX
+  case ERR_SVR_COMM_INVALID_SERVICE
+  case ERR_SVR_COMM_SENSITIVE_TEXT
+  case ERR_SVR_COMM_BODY_SIZE_LIMIT
+  case ERR_SVR_COMM_SENSITIVE_IMAGE
+  case ERR_SVR_ACCOUNT_USERSIG_EXPIRED
+  case ERR_SVR_ACCOUNT_USERSIG_EMPTY
+  case ERR_SVR_ACCOUNT_USERSIG_CHECK_FAILED
+  case ERR_SVR_ACCOUNT_USERSIG_CHECK_FAILED_EX
+  case ERR_SVR_ACCOUNT_USERSIG_MISMATCH_PUBLICKEY
+  case ERR_SVR_ACCOUNT_USERSIG_MISMATCH_ID
+  case ERR_SVR_ACCOUNT_USERSIG_MISMATCH_SDKAPPID
+  case ERR_SVR_ACCOUNT_USERSIG_PUBLICKEY_NOT_FOUND
+  case ERR_SVR_ACCOUNT_SDKAPPID_NOT_FOUND
+  case ERR_SVR_ACCOUNT_INVALID_USERSIG
+  case ERR_SVR_ACCOUNT_NOT_FOUND
+  case ERR_SVR_ACCOUNT_SEC_RSTR
+  case ERR_SVR_ACCOUNT_INTERNAL_TIMEOUT
+  case ERR_SVR_ACCOUNT_INVALID_COUNT
+  case ERR_SVR_ACCOUNT_INVALID_PARAMETERS
+  case ERR_SVR_ACCOUNT_ADMIN_REQUIRED
+  case ERR_SVR_ACCOUNT_LOW_SDK_VERSION
+  case ERR_SVR_ACCOUNT_FREQ_LIMIT
+  case ERR_SVR_ACCOUNT_BLACKLIST
+  case ERR_SVR_ACCOUNT_COUNT_LIMIT
+  case ERR_SVR_ACCOUNT_INTERNAL_ERROR
+  case ERR_SVR_ACCOUNT_USER_STATUS_DISABLED
+  case ERR_SVR_PROFILE_INVALID_PARAMETERS
+  case ERR_SVR_PROFILE_ACCOUNT_MISS
+  case ERR_SVR_PROFILE_ACCOUNT_NOT_FOUND
+  case ERR_SVR_PROFILE_ADMIN_REQUIRED
+  case ERR_SVR_PROFILE_SENSITIVE_TEXT
+  case ERR_SVR_PROFILE_INTERNAL_ERROR
+  case ERR_SVR_PROFILE_READ_PERMISSION_REQUIRED
+  case ERR_SVR_PROFILE_WRITE_PERMISSION_REQUIRED
+  case ERR_SVR_PROFILE_TAG_NOT_FOUND
+  case ERR_SVR_PROFILE_SIZE_LIMIT
+  case ERR_SVR_PROFILE_VALUE_ERROR
+  case ERR_SVR_PROFILE_INVALID_VALUE_FORMAT
+  case ERR_SVR_PROFILE_SUBSCRIPTION_DISABLED
+  case ERR_SVR_FRIENDSHIP_INVALID_PARAMETERS
+  case ERR_SVR_FRIENDSHIP_INVALID_SDKAPPID
+  case ERR_SVR_FRIENDSHIP_ACCOUNT_NOT_FOUND
+  case ERR_SVR_FRIENDSHIP_ADMIN_REQUIRED
+  case ERR_SVR_FRIENDSHIP_SENSITIVE_TEXT
+  case ERR_SVR_FRIENDSHIP_INTERNAL_ERROR
+  case ERR_SVR_FRIENDSHIP_NET_TIMEOUT
+  case ERR_SVR_FRIENDSHIP_WRITE_CONFLICT
+  case ERR_SVR_FRIENDSHIP_ADD_FRIEND_DENY
+  case ERR_SVR_FRIENDSHIP_COUNT_LIMIT
+  case ERR_SVR_FRIENDSHIP_GROUP_COUNT_LIMIT
+  case ERR_SVR_FRIENDSHIP_PENDENCY_LIMIT
+  case ERR_SVR_FRIENDSHIP_BLACKLIST_LIMIT
+  case ERR_SVR_FRIENDSHIP_PEER_FRIEND_LIMIT
+  case ERR_SVR_FRIENDSHIP_ALREADY_FRIENDS
+  case ERR_SVR_FRIENDSHIP_IN_SELF_BLACKLIST
+  case ERR_SVR_FRIENDSHIP_ALLOW_TYPE_DENY_ANY
+  case ERR_SVR_FRIENDSHIP_IN_PEER_BLACKLIST
+  case ERR_SVR_FRIENDSHIP_ALLOW_TYPE_NEED_CONFIRM
+  case ERR_SVR_FRIENDSHIP_ADD_FRIEND_SEC_RSTR
+  case ERR_SVR_FRIENDSHIP_PENDENCY_NOT_FOUND
+  case ERR_SVR_FRIENDSHIP_DEL_NONFRIEND
+  case ERR_SVR_FRIENDSHIP_DEL_FRIEND_SEC_RSTR
+  case ERR_SVR_FRIENDSHIP_ACCOUNT_NOT_FOUND_EX
+  case ERR_SVR_FRIENDSHIP_SELF_FOLLOWING_COUNT_EXCEEDS_LIMIT
+  case ERR_SVR_FRIENDSHIP_PEER_FOLLOWERS_COUNT_EXCEEDS_LIMIT
+  case ERR_SVR_FRIENDSHIP_SELF_MUTUAL_FOLLOWERS_COUNT_EXCEEDS_LIMIT
+  case ERR_SVR_FRIENDSHIP_PEER_MUTUAL_FOLLOWERS_COUNT_EXCEEDS_LIMIT
+  case ERR_SVR_CONV_ACCOUNT_NOT_FOUND
+  case ERR_SVR_CONV_INVALID_PARAMETERS
+  case ERR_SVR_CONV_ADMIN_REQUIRED
+  case ERR_SVR_CONV_INTERNAL_ERROR
+  case ERR_SVR_CONV_NET_TIMEOUT
+  case ERR_SVR_CONV_CONV_MARK_REQ_COUNT_EXCEED_LIMIT
+  case ERR_SVR_CONV_CONV_MARK_OPERATE_FAILED
+  case ERR_SVR_CONV_CONV_MARK_TOTAL_COUNT_EXCEED_LIMIT
+  case ERR_SVR_CONV_CONV_GROUP_NOT_EXIST
+  case ERR_SVR_CONV_CONV_GROUP_TOTAL_COUNT_EXCEED_LIMIT
+  case ERR_SVR_CONV_CONV_GROUP_NAME_EXCEED_LENGTH
+  case ERR_SVR_MSG_PKG_PARSE_FAILED
+  case ERR_SVR_MSG_INTERNAL_AUTH_FAILED
+  case ERR_SVR_MSG_INVALID_ID
+  case ERR_SVR_MSG_NET_ERROR
+  case ERR_SVR_MSG_INTERNAL_ERROR1
+  case ERR_SVR_MSG_PUSH_DENY
+  case ERR_SVR_MSG_IN_PEER_BLACKLIST
+  case ERR_SVR_MSG_BOTH_NOT_FRIEND
+  case ERR_SVR_MSG_NOT_PEER_FRIEND
+  case ERR_SVR_MSG_NOT_SELF_FRIEND
+  case ERR_SVR_MSG_SHUTUP_DENY
+  case ERR_SVR_MSG_REVOKE_TIME_LIMIT
+  case ERR_SVR_MSG_DEL_RAMBLE_INTERNAL_ERROR
+  case ERR_SVR_MSG_EXTENSION_CONFLICT
+  case ERR_SVR_MSG_EXTENSION_NOT_EXIST
+  case ERR_SVR_MSG_REACTION_COUNT_LIMIT
+  case ERR_SVR_MSG_REACTION_USER_COUNT_LIMIT
+  case ERR_SVR_MSG_REACTION_ALREADY_CONTAIN_USER
+  case ERR_SVR_MSG_REACTION_NOT_EXISTS
+  case ERR_SVR_MSG_REACTION_NOT_CONTAIN_USER
+  case ERR_SVR_MSG_JSON_PARSE_FAILED
+  case ERR_SVR_MSG_INVALID_JSON_BODY_FORMAT
+  case ERR_SVR_MSG_INVALID_TO_ACCOUNT
+  case ERR_SVR_MSG_INVALID_RAND
+  case ERR_SVR_MSG_INVALID_TIMESTAMP
+  case ERR_SVR_MSG_BODY_NOT_ARRAY
+  case ERR_SVR_MSG_ADMIN_REQUIRED
+  case ERR_SVR_MSG_INVALID_JSON_FORMAT
+  case ERR_SVR_MSG_TO_ACCOUNT_COUNT_LIMIT
+  case ERR_SVR_MSG_TO_ACCOUNT_NOT_FOUND
+  case ERR_SVR_MSG_TIME_LIMIT
+  case ERR_SVR_MSG_INVALID_SYNCOTHERMACHINE
+  case ERR_SVR_MSG_INVALID_MSGLIFETIME
+  case ERR_SVR_MSG_ACCOUNT_NOT_FOUND
+  case ERR_SVR_MSG_INTERNAL_ERROR2
+  case ERR_SVR_MSG_INTERNAL_ERROR3
+  case ERR_SVR_MSG_INTERNAL_ERROR4
+  case ERR_SVR_MSG_INTERNAL_ERROR5
+  case ERR_SVR_MSG_BODY_SIZE_LIMIT
+  case ERR_SVR_MSG_LONGPOLLING_COUNT_LIMIT
+  case ERR_SVR_GROUP_INTERNAL_ERROR
+  case ERR_SVR_GROUP_API_NAME_ERROR
+  case ERR_SVR_GROUP_INVALID_PARAMETERS
+  case ERR_SVR_GROUP_ACOUNT_COUNT_LIMIT
+  case ERR_SVR_GROUP_FREQ_LIMIT
+  case ERR_SVR_GROUP_PERMISSION_DENY
+  case ERR_SVR_GROUP_INVALID_REQ
+  case ERR_SVR_GROUP_SUPER_NOT_ALLOW_QUIT
+  case ERR_SVR_GROUP_NOT_FOUND
+  case ERR_SVR_GROUP_JSON_PARSE_FAILED
+  case ERR_SVR_GROUP_INVALID_ID
+  case ERR_SVR_GROUP_ALLREADY_MEMBER
+  case ERR_SVR_GROUP_FULL_MEMBER_COUNT
+  case ERR_SVR_GROUP_INVALID_GROUPID
+  case ERR_SVR_GROUP_REJECT_FROM_THIRDPARTY
+  case ERR_SVR_GROUP_SHUTUP_DENY
+  case ERR_SVR_GROUP_RSP_SIZE_LIMIT
+  case ERR_SVR_GROUP_ACCOUNT_NOT_FOUND
+  case ERR_SVR_GROUP_GROUPID_IN_USED
+  case ERR_SVR_GROUP_SEND_MSG_FREQ_LIMIT
+  case ERR_SVR_GROUP_REQ_ALLREADY_BEEN_PROCESSED
+  case ERR_SVR_GROUP_GROUPID_IN_USED_FOR_SUPER
+  case ERR_SVR_GROUP_SDKAPPID_DENY
+  case ERR_SVR_GROUP_REVOKE_MSG_NOT_FOUND
+  case ERR_SVR_GROUP_REVOKE_MSG_TIME_LIMIT
+  case ERR_SVR_GROUP_REVOKE_MSG_DENY
+  case ERR_SVR_GROUP_NOT_ALLOW_REVOKE_MSG
+  case ERR_SVR_GROUP_REMOVE_MSG_DENY
+  case ERR_SVR_GROUP_NOT_ALLOW_REMOVE_MSG
+  case ERR_SVR_GROUP_AVCHATROOM_COUNT_LIMIT
+  case ERR_SVR_GROUP_COUNT_LIMIT
+  case ERR_SVR_GROUP_MEMBER_COUNT_LIMIT
+  case ERR_SVR_GROUP_ATTRIBUTE_WRITE_CONFILCT
+  case ERR_SVR_GROUP_PINNED_MESSAGE_COUNT_LIMIT
+  case ERR_SVR_GROUP_MESSAGE_ALREADY_PINNED
+  case ERR_SVR_COMMUNITY_GROUP_NOT_OPEN
+  case ERR_NO_SUCC_RESULT
+  case ERR_TO_USER_INVALID
+  case ERR_REQUEST_TIME_OUT
+  case ERR_INIT_CORE_FAIL
+  case ERR_EXPIRED_SESSION_NODE
+  case ERR_LOGGED_OUT_BEFORE_LOGIN_FINISHED
+  case ERR_TLSSDK_NOT_INITIALIZED
+  case ERR_TLSSDK_USER_NOT_FOUND
+  case ERR_BIND_FAIL_UNKNOWN
+  case ERR_BIND_FAIL_NO_SSOTICKET
+  case ERR_BIND_FAIL_REPEATD_BIND
+  case ERR_BIND_FAIL_TINYID_NULL
+  case ERR_BIND_FAIL_GUID_NULL
+  case ERR_BIND_FAIL_UNPACK_REGPACK_FAILED
+  case ERR_BIND_FAIL_REG_TIMEOUT
+  case ERR_BIND_FAIL_ISBINDING
+  case ERR_PACKET_FAIL_UNKNOWN
+  case ERR_PACKET_FAIL_REQ_NO_NET
+  case ERR_PACKET_FAIL_RESP_NO_NET
+  case ERR_PACKET_FAIL_REQ_NO_AUTH
+  case ERR_PACKET_FAIL_SSO_ERR
+  case ERR_PACKET_FAIL_REQ_TIMEOUT
+  case ERR_PACKET_FAIL_RESP_TIMEOUT
+  case ERR_PACKET_FAIL_REQ_ON_RESEND
+  case ERR_PACKET_FAIL_RESP_NO_RESEND
+  case ERR_PACKET_FAIL_FLOW_SAVE_FILTERED
+  case ERR_PACKET_FAIL_REQ_OVER_LOAD
+  case ERR_PACKET_FAIL_LOGIC_ERR
+  case ERR_FRIENDSHIP_PROXY_NOT_SYNCED
+  case ERR_FRIENDSHIP_PROXY_SYNCING
+  case ERR_FRIENDSHIP_PROXY_SYNCED_FAIL
+  case ERR_FRIENDSHIP_PROXY_LOCAL_CHECK_ERR
+  case ERR_GROUP_INVALID_FIELD
+  case ERR_GROUP_STORAGE_DISABLED
+  case ERR_LOADGRPINFO_FAILED
+  case ERR_REQ_NO_NET_ON_REQ
+  case ERR_REQ_NO_NET_ON_RSP
+  case ERR_SERIVCE_NOT_READY
+  case ERR_LOGIN_AUTH_FAILED
+  case ERR_NEVER_CONNECT_AFTER_LAUNCH
+  case ERR_REQ_FAILED
+  case ERR_REQ_INVALID_REQ
+  case ERR_REQ_OVERLOADED
+  case ERR_REQ_KICK_OFF
+  case ERR_REQ_SERVICE_SUSPEND
+  case ERR_REQ_INVALID_SIGN
+  case ERR_REQ_INVALID_COOKIE
+  case ERR_LOGIN_TLS_RSP_PARSE_FAILED
+  case ERR_LOGIN_OPENMSG_TIMEOUT
+  case ERR_LOGIN_OPENMSG_RSP_PARSE_FAILED
+  case ERR_LOGIN_TLS_DECRYPT_FAILED
+  case ERR_WIFI_NEED_AUTH
+  case ERR_USER_CANCELED
+  case ERR_REVOKE_TIME_LIMIT_EXCEED
+  case ERR_LACK_UGC_EXT
+  case ERR_AUTOLOGIN_NEED_USERSIG
+  case ERR_QAL_NO_SHORT_CONN_AVAILABLE
+  case ERR_REQ_CONTENT_ATTACK
+  case ERR_LOGIN_SIG_EXPIRE
+  case ERR_SDK_HAD_INITIALIZED
+  case ERR_OPENBDH_BASE
+  case ERR_REQUEST_NO_NET_ONREQ
+  case ERR_REQUEST_NO_NET_ONRSP
+  case ERR_REQUEST_FAILED
+  case ERR_REQUEST_INVALID_REQ
+  case ERR_REQUEST_OVERLOADED
+  case ERR_REQUEST_KICK_OFF
+  case ERR_REQUEST_SERVICE_SUSPEND
+  case ERR_REQUEST_INVALID_SIGN
+  case ERR_REQUEST_INVALID_COOKIE
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func setAPNSListener(apnsListener: ImSDK_Plus_Swift.V2TIMAPNSListener?)
+  public func setAPNS(config: ImSDK_Plus_Swift.V2TIMAPNSConfig?, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+}
+public protocol V2TIMAPNSListener : AnyObject {
+  func onSetAPPUnreadCount() -> Swift.UInt
+}
+public class V2TIMAPNSConfig {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var token: Foundation.Data? {
+    get
+    set(newValue)
+  }
+  public var businessID: Swift.Int {
+    get
+    set(newValue)
+  }
+  @available(*, deprecated, message: "not supported anymore, please use APNs")
+  public var isTPNSToken: Swift.Bool {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public typealias V2TIMTopicOperationResultSucc = (_ resultList: Swift.Array<ImSDK_Plus_Swift.V2TIMTopicOperationResult>) -> (Swift.Void)
+public typealias V2TIMTopicInfoResultListSucc = (_ resultList: Swift.Array<ImSDK_Plus_Swift.V2TIMTopicInfoResult>) -> (Swift.Void)
+public typealias V2TIMCreateTopicSucc = (_ topicID: Swift.String) -> (Swift.Void)
+public typealias V2TIMCreatePermissionGroupSucc = (_ permissionGroupID: Swift.String) -> (Swift.Void)
+public typealias V2TIMPermissionGroupOperationResultSucc = (_ resultList: Swift.Array<ImSDK_Plus_Swift.V2TIMPermissionGroupOperationResult>) -> (Swift.Void)
+public typealias V2TIMPermissionGroupInfoResultListSucc = (_ resultList: Swift.Array<ImSDK_Plus_Swift.V2TIMPermissionGroupInfoResult>) -> (Swift.Void)
+public typealias V2TIMPermissionGroupMemberOperationResultListSucc = (_ resultList: Swift.Array<ImSDK_Plus_Swift.V2TIMPermissionGroupMemberOperationResult>) -> (Swift.Void)
+public typealias V2TIMPermissionGroupMemberInfoResultListSucc = (_ nextCursor: Swift.String, _ resultList: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupMemberFullInfo>) -> (Swift.Void)
+public typealias V2TIMTopicPermissionResultSucc = (_ resultMap: Swift.Array<ImSDK_Plus_Swift.V2TIMTopicPermissionResult>) -> (Swift.Void)
+public enum V2TIMCommunityPermissionValue : Swift.UInt64 {
+  case V2TIM_COMMUNITY_PERMISSION_MANAGE_GROUP_INFO
+  case V2TIM_COMMUNITY_PERMISSION_MANAGE_GROUP_MEMBER
+  case V2TIM_COMMUNITY_PERMISSION_MANAGE_PERMISSION_GROUP_INFO
+  case V2TIM_COMMUNITY_PERMISSION_MANAGE_PERMISSION_GROUP_MEMBER
+  case V2TIM_COMMUNITY_PERMISSION_MANAGE_TOPIC_IN_COMMUNITY
+  case V2TIM_COMMUNITY_PERMISSION_MUTE_MEMBER
+  case V2TIM_COMMUNITY_PERMISSION_SEND_MESSAGE
+  case V2TIM_COMMUNITY_PERMISSION_AT_ALL
+  case V2TIM_COMMUNITY_PERMISSION_GET_HISTORY_MESSAGE
+  case V2TIM_COMMUNITY_PERMISSION_REVOKE_OTHER_MEMBER_MESSAGE
+  case V2TIM_COMMUNITY_PERMISSION_BAN_MEMBER
+  public init?(rawValue: Swift.UInt64)
+  public typealias RawValue = Swift.UInt64
+  public var rawValue: Swift.UInt64 {
+    get
+  }
+}
+public enum V2TIMTopicPermissionValue : Swift.UInt64 {
+  case V2TIM_TOPIC_PERMISSION_MANAGE_TOPIC
+  case V2TIM_TOPIC_PERMISSION_MANAGE_TOPIC_PERMISSION
+  case V2TIM_TOPIC_PERMISSION_MUTE_MEMBER
+  case V2TIM_TOPIC_PERMISSION_SEND_MESSAGE
+  case V2TIM_TOPIC_PERMISSION_GET_HISTORY_MESSAGE
+  case V2TIM_TOPIC_PERMISSION_REVOKE_OTHER_MEMBER_MESSAGE
+  case V2TIM_TOPIC_PERMISSION_AT_ALL
+  public init?(rawValue: Swift.UInt64)
+  public typealias RawValue = Swift.UInt64
+  public var rawValue: Swift.UInt64 {
+    get
+  }
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func addCommunityListener(listener: ImSDK_Plus_Swift.V2TIMCommunityListener)
+  public func removeCommunityListener(listener: ImSDK_Plus_Swift.V2TIMCommunityListener)
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func createCommunity(info: ImSDK_Plus_Swift.V2TIMGroupInfo, memberList: Swift.Array<ImSDK_Plus_Swift.V2TIMCreateGroupMemberInfo>?, succ: ImSDK_Plus_Swift.V2TIMCreateGroupSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func getJoinedCommunityList(succ: @escaping ImSDK_Plus_Swift.V2TIMGroupInfoListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func createTopicInCommunity(groupID: Swift.String, topicInfo: ImSDK_Plus_Swift.V2TIMTopicInfo, succ: ImSDK_Plus_Swift.V2TIMCreateTopicSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func deleteTopicFromCommunity(groupID: Swift.String, topicIDList: Swift.Array<Swift.String>, succ: ImSDK_Plus_Swift.V2TIMTopicOperationResultSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func setTopicInfo(topicInfo: ImSDK_Plus_Swift.V2TIMTopicInfo, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func getTopicInfoList(groupID: Swift.String, topicIDList: Swift.Array<Swift.String>?, succ: @escaping ImSDK_Plus_Swift.V2TIMTopicInfoResultListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func createPermissionGroupInCommunity(permissionGroupInfo: ImSDK_Plus_Swift.V2TIMPermissionGroupInfo, succ: ImSDK_Plus_Swift.V2TIMCreatePermissionGroupSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func deletePermissionGroupFromCommunity(groupID: Swift.String, permissionGroupIDList: Swift.Array<Swift.String>, succ: ImSDK_Plus_Swift.V2TIMPermissionGroupOperationResultSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func modifyPermissionGroupInfoInCommunity(permissionGroupInfo: ImSDK_Plus_Swift.V2TIMPermissionGroupInfo, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func getJoinedPermissionGroupListInCommunity(groupID: Swift.String, succ: @escaping ImSDK_Plus_Swift.V2TIMPermissionGroupInfoResultListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func getPermissionGroupListInCommunity(groupID: Swift.String, permissionGroupIDList: Swift.Array<Swift.String>, succ: @escaping ImSDK_Plus_Swift.V2TIMPermissionGroupInfoResultListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func addCommunityMembersToPermissionGroup(groupID: Swift.String, permissionGroupID: Swift.String, memberList: Swift.Array<Swift.String>, succ: ImSDK_Plus_Swift.V2TIMPermissionGroupMemberOperationResultListSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func removeCommunityMembersFromPermissionGroup(groupID: Swift.String, permissionGroupID: Swift.String, memberList: Swift.Array<Swift.String>, succ: ImSDK_Plus_Swift.V2TIMPermissionGroupMemberOperationResultListSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func getCommunityMemberListInPermissionGroup(groupID: Swift.String, permissionGroupID: Swift.String, nextCursor: Swift.String, succ: @escaping ImSDK_Plus_Swift.V2TIMPermissionGroupMemberInfoResultListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func addTopicPermissionToPermissionGroup(groupID: Swift.String, permissionGroupID: Swift.String, topicPermissionMap: Swift.Dictionary<Swift.String, Foundation.NSNumber>, succ: @escaping ImSDK_Plus_Swift.V2TIMTopicOperationResultSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func deleteTopicPermissionFromPermissionGroup(groupID: Swift.String, permissionGroupID: Swift.String, topicIDList: Swift.Array<Swift.String>, succ: @escaping ImSDK_Plus_Swift.V2TIMTopicOperationResultSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func modifyTopicPermissionInPermissionGroup(groupID: Swift.String, permissionGroupID: Swift.String, topicPermissionMap: Swift.Dictionary<Swift.String, Foundation.NSNumber>, succ: @escaping ImSDK_Plus_Swift.V2TIMTopicOperationResultSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func getTopicPermissionInPermissionGroup(groupID: Swift.String, permissionGroupID: Swift.String, topicIDList: Swift.Array<Swift.String>, succ: @escaping ImSDK_Plus_Swift.V2TIMTopicPermissionResultSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+}
+public protocol V2TIMCommunityListener : AnyObject {
+  func onCreateTopic(groupID: Swift.String, topicID: Swift.String)
+  func onDeleteTopic(groupID: Swift.String, topicIDList: Swift.Array<Swift.String>)
+  func onChangeTopicInfo(groupID: Swift.String, topicInfo: ImSDK_Plus_Swift.V2TIMTopicInfo)
+  func onReceiveTopicRESTCustomData(topicID: Swift.String, data: Foundation.Data?)
+  func onCreatePermissionGroup(groupID: Swift.String, permissionGroupInfo: ImSDK_Plus_Swift.V2TIMPermissionGroupInfo)
+  func onDeletePermissionGroup(groupID: Swift.String, permissionGroupIDList: Swift.Array<Swift.String>)
+  func onChangePermissionGroupInfo(groupID: Swift.String, permissionGroupInfo: ImSDK_Plus_Swift.V2TIMPermissionGroupInfo)
+  func onAddMembersToPermissionGroup(groupID: Swift.String, permissionGroupID: Swift.String, memberIDList: Swift.Array<Swift.String>)
+  func onRemoveMembersFromPermissionGroup(groupID: Swift.String, permissionGroupID: Swift.String, memberIDList: Swift.Array<Swift.String>)
+  func onAddTopicPermission(groupID: Swift.String, permissionGroupID: Swift.String, topicPermissionMap: Swift.Dictionary<Swift.String, Foundation.NSNumber>)
+  func onDeleteTopicPermission(groupID: Swift.String, permissionGroupID: Swift.String, topicIDList: Swift.Array<Swift.String>)
+  func onModifyTopicPermission(groupID: Swift.String, permissionGroupID: Swift.String, topicPermissionMap: Swift.Dictionary<Swift.String, Foundation.NSNumber>)
+}
+public class V2TIMTopicInfo {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var topicID: Swift.String {
+    get
+    set(newValue)
+  }
+  public var topicType: Swift.String {
+    get
+    set(newValue)
+  }
+  public var topicName: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var topicFaceURL: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var introduction: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var notification: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var isAllMuted: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var selfMuteTime: Swift.UInt {
+    get
+  }
+  public var customString: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var recvOpt: ImSDK_Plus_Swift.V2TIMReceiveMessageOpt {
+    get
+  }
+  public var draftText: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var unreadCount: Swift.UInt {
+    get
+  }
+  public var lastMessage: ImSDK_Plus_Swift.V2TIMMessage? {
+    get
+  }
+  public var readSequence: Swift.UInt64 {
+    get
+  }
+  public var groupAtInfolist: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupAtInfo>? {
+    get
+  }
+  public var createTime: Swift.UInt32 {
+    get
+  }
+  public var topicAddOpt: ImSDK_Plus_Swift.V2TIMGroupAddOpt {
+    get
+    set(newValue)
+  }
+  public var topicApproveOpt: ImSDK_Plus_Swift.V2TIMGroupAddOpt {
+    get
+    set(newValue)
+  }
+  public var memberList: [ImSDK_Plus_Swift.V2TIMCreateGroupMemberInfo] {
+    get
+    set(newValue)
+  }
+  public var memberMaxCount: Swift.UInt32 {
+    get
+    set(newValue)
+  }
+  public var defaultPermissions: Swift.UInt64 {
+    get
+    set(newValue)
+  }
+  public func isInheritMessageReceiveOptionFromCommunity() -> (Swift.Bool)
+  public func setInheritMessageReceiveOptionFromCommunity(isInherit: Swift.Bool, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  @objc deinit
+}
+public class V2TIMTopicOperationResult {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var errorCode: Swift.Int {
+    get
+    set(newValue)
+  }
+  public var errorMsg: Swift.String {
+    get
+    set(newValue)
+  }
+  public var topicID: Swift.String? {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public class V2TIMTopicInfoResult {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var errorCode: Swift.Int {
+    get
+    set(newValue)
+  }
+  public var errorMsg: Swift.String {
+    get
+    set(newValue)
+  }
+  public var topicInfo: ImSDK_Plus_Swift.V2TIMTopicInfo? {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public class V2TIMPermissionGroupInfo {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var groupID: Swift.String {
+    get
+    set(newValue)
+  }
+  public var permissionGroupID: Swift.String {
+    get
+    set(newValue)
+  }
+  public var permissionGroupName: Swift.String {
+    get
+    set(newValue)
+  }
+  public var customData: Swift.String {
+    get
+    set(newValue)
+  }
+  public var groupPermission: Swift.UInt64 {
+    get
+    set(newValue)
+  }
+  public var memberCount: Swift.UInt64 {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMPermissionGroupInfoResult {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var resultCode: Swift.Int {
+    get
+  }
+  public var resultMsg: Swift.String {
+    get
+  }
+  public var info: ImSDK_Plus_Swift.V2TIMPermissionGroupInfo? {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMPermissionGroupMemberOperationResult {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var memberID: Swift.String {
+    get
+  }
+  public var resultCode: Swift.Int {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMPermissionGroupOperationResult {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var resultCode: Swift.Int {
+    get
+  }
+  public var resultMsg: Swift.String {
+    get
+  }
+  public var permissionGroupID: Swift.String {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMTopicPermissionResult {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var resultCode: Swift.Int {
+    get
+  }
+  public var resultMsg: Swift.String {
+    get
+  }
+  public var topicID: Swift.String {
+    get
+  }
+  public var topicPermission: Swift.UInt64 {
+    get
+  }
+  public var groupID: Swift.String {
+    get
+  }
+  public var permissionGroupID: Swift.String {
+    get
+  }
+  @objc deinit
+}
+public typealias V2TIMConversationResultSucc = (_ list: Swift.Array<ImSDK_Plus_Swift.V2TIMConversation>, _ nextSeq: Swift.UInt, _ isFinished: Swift.Bool) -> (Swift.Void)
+public typealias V2TIMConversationSucc = (_ conv: ImSDK_Plus_Swift.V2TIMConversation) -> (Swift.Void)
+public typealias V2TIMConversationListSucc = (_ list: Swift.Array<ImSDK_Plus_Swift.V2TIMConversation>) -> (Swift.Void)
+public typealias V2TIMTotalUnreadMessageCountSucc = (_ totalCount: Swift.UInt) -> (Swift.Void)
+public typealias V2TIMConversationGroupListSucc = (_ groupList: Swift.Array<Swift.String>) -> (Swift.Void)
+public typealias V2TIMConversationOperationResultSucc = (_ result: Swift.Array<ImSDK_Plus_Swift.V2TIMConversationOperationResult>) -> (Swift.Void)
+public enum V2TIMConversationType : Swift.Int {
+  case V2TIM_UNKNOWN
+  case V2TIM_C2C
+  case V2TIM_GROUP
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMGroupAtType : Swift.Int {
+  case V2TIM_AT_ME
+  case V2TIM_AT_ALL
+  case V2TIM_AT_ALL_AT_ME
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct V2TIMConversationMarkType : Swift.OptionSet {
+  public let rawValue: Swift.UInt
+  public init(rawValue: Swift.UInt)
+  public static let V2TIM_CONVERSATION_MARK_TYPE_STAR: ImSDK_Plus_Swift.V2TIMConversationMarkType
+  public static let V2TIM_CONVERSATION_MARK_TYPE_UNREAD: ImSDK_Plus_Swift.V2TIMConversationMarkType
+  public static let V2TIM_CONVERSATION_MARK_TYPE_FOLD: ImSDK_Plus_Swift.V2TIMConversationMarkType
+  public static let V2TIM_CONVERSATION_MARK_TYPE_HIDE: ImSDK_Plus_Swift.V2TIMConversationMarkType
+  public typealias ArrayLiteralElement = ImSDK_Plus_Swift.V2TIMConversationMarkType
+  public typealias Element = ImSDK_Plus_Swift.V2TIMConversationMarkType
+  public typealias RawValue = Swift.UInt
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func addConversationListener(listener: ImSDK_Plus_Swift.V2TIMConversationListener)
+  public func removeConversationListener(listener: ImSDK_Plus_Swift.V2TIMConversationListener)
+  public func getConversationList(nextSeq: Swift.UInt, count: Swift.Int32, succ: @escaping ImSDK_Plus_Swift.V2TIMConversationResultSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func getConversation(conversationID: Swift.String, succ: @escaping ImSDK_Plus_Swift.V2TIMConversationSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func getConversationList(conversationIDList: Swift.Array<Swift.String>, succ: @escaping ImSDK_Plus_Swift.V2TIMConversationListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func getConversationListByFilter(filter: ImSDK_Plus_Swift.V2TIMConversationListFilter, nextSeq: Swift.UInt, count: Swift.UInt, succ: @escaping ImSDK_Plus_Swift.V2TIMConversationResultSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func deleteConversation(conversation: Swift.String, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func deleteConversationList(conversationIDList: Swift.Array<Swift.String>, clearMessage: Swift.Bool, succ: ImSDK_Plus_Swift.V2TIMConversationOperationResultSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func setConversationDraft(conversationID: Swift.String, draftText: Swift.String?, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func setConversationCustomData(conversationIDList: Swift.Array<Swift.String>, customData: Foundation.Data?, succ: ImSDK_Plus_Swift.V2TIMConversationOperationResultSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func pinConversation(conversationID: Swift.String, isPinned: Swift.Bool, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func markConversation(conversationIDList: Swift.Array<Swift.String>, markType: ImSDK_Plus_Swift.V2TIMConversationMarkType, enableMark: Swift.Bool, succ: ImSDK_Plus_Swift.V2TIMConversationOperationResultSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func getTotalUnreadMessageCount(succ: @escaping ImSDK_Plus_Swift.V2TIMTotalUnreadMessageCountSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func getUnreadMessageCountByFilter(filter: ImSDK_Plus_Swift.V2TIMConversationListFilter, succ: @escaping ImSDK_Plus_Swift.V2TIMTotalUnreadMessageCountSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func subscribeUnreadMessageCountByFilter(filter: ImSDK_Plus_Swift.V2TIMConversationListFilter)
+  public func unsubscribeUnreadMessageCountByFilter(filter: ImSDK_Plus_Swift.V2TIMConversationListFilter)
+  public func cleanConversationUnreadMessageCount(conversationID: Swift.String?, cleanTimestamp: Swift.UInt64, cleanSequence: Swift.UInt64, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func createConversationGroup(groupName: Swift.String, conversationIDList: Swift.Array<Swift.String>, succ: @escaping ImSDK_Plus_Swift.V2TIMConversationOperationResultSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func getConversationGroupList(succ: @escaping ImSDK_Plus_Swift.V2TIMConversationGroupListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func deleteConversationGroup(groupName: Swift.String, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func renameConversationGroup(oldName: Swift.String, newName: Swift.String, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func addConversationsToGroup(groupName: Swift.String, conversationIDList: Swift.Array<Swift.String>, succ: ImSDK_Plus_Swift.V2TIMConversationOperationResultSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func deleteConversationsFromGroup(groupName: Swift.String, conversationIDList: Swift.Array<Swift.String>, succ: ImSDK_Plus_Swift.V2TIMConversationOperationResultSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+}
+public protocol V2TIMConversationListener : AnyObject {
+  func onSyncServerStart()
+  func onSyncServerFinish()
+  func onSyncServerFailed()
+  func onNewConversation(conversationList: Swift.Array<ImSDK_Plus_Swift.V2TIMConversation>)
+  func onConversationChanged(conversationList: Swift.Array<ImSDK_Plus_Swift.V2TIMConversation>)
+  func onConversationDeleted(conversationIDList: Swift.Array<Swift.String>)
+  func onTotalUnreadMessageCountChanged(totalUnreadCount: Swift.UInt)
+  func onUnreadMessageCountChangedByFilter(filter: ImSDK_Plus_Swift.V2TIMConversationListFilter, totalUnreadCount: Swift.UInt)
+  func onConversationGroupCreated(groupName: Swift.String, conversationList: Swift.Array<ImSDK_Plus_Swift.V2TIMConversation>)
+  func onConversationGroupDeleted(groupName: Swift.String)
+  func onConversationGroupNameChanged(oldName: Swift.String, newName: Swift.String)
+  func onConversationsAddedToGroup(groupName: Swift.String, conversationList: Swift.Array<ImSDK_Plus_Swift.V2TIMConversation>)
+  func onConversationsDeletedFromGroup(groupName: Swift.String, conversationList: Swift.Array<ImSDK_Plus_Swift.V2TIMConversation>, reason: Swift.UInt32)
+  @available(*, deprecated, message: "Use onConversationsDeletedFromGroup(groupName:conversationList:reason:) instead")
+  func onConversationsDeletedFromGroup(groupName: Swift.String, conversationList: Swift.Array<ImSDK_Plus_Swift.V2TIMConversation>)
+}
+public class V2TIMConversation {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var type: ImSDK_Plus_Swift.V2TIMConversationType {
+    get
+  }
+  public var conversationID: Swift.String {
+    get
+  }
+  public var userID: Swift.String? {
+    get
+  }
+  public var groupID: Swift.String? {
+    get
+  }
+  public var groupType: Swift.String? {
+    get
+  }
+  public var showName: Swift.String? {
+    get
+  }
+  public var faceUrl: Swift.String? {
+    get
+  }
+  public var unreadCount: Swift.Int {
+    get
+  }
+  public var recvOpt: ImSDK_Plus_Swift.V2TIMReceiveMessageOpt {
+    get
+  }
+  public var lastMessage: ImSDK_Plus_Swift.V2TIMMessage? {
+    get
+  }
+  public var groupAtInfolist: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupAtInfo>? {
+    get
+  }
+  public var draftText: Swift.String? {
+    get
+  }
+  public var draftTimestamp: Foundation.Date? {
+    get
+  }
+  public var isPinned: Swift.Bool {
+    get
+  }
+  public var orderKey: Swift.UInt {
+    get
+  }
+  public var markList: Swift.Array<ImSDK_Plus_Swift.V2TIMConversationMarkType>? {
+    get
+  }
+  public var customData: Foundation.Data? {
+    get
+  }
+  public var conversationGroupList: Swift.Array<Swift.String>? {
+    get
+  }
+  public var c2cReadTimestamp: Swift.UInt? {
+    get
+  }
+  public var groupReadSequence: Swift.UInt? {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMConversationListFilter {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var type: ImSDK_Plus_Swift.V2TIMConversationType {
+    get
+    set(newValue)
+  }
+  public var conversationGroup: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var markType: ImSDK_Plus_Swift.V2TIMConversationMarkType {
+    get
+    set(newValue)
+  }
+  public var hasUnreadCount: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var hasGroupAtInfo: Swift.Bool {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public class V2TIMGroupAtInfo {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var seq: Swift.UInt {
+    get
+  }
+  public var atType: ImSDK_Plus_Swift.V2TIMGroupAtType {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMConversationOperationResult {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var conversationID: Swift.String {
+    get
+    set(newValue)
+  }
+  public var resultCode: Swift.Int {
+    get
+    set(newValue)
+  }
+  public var resultInfo: Swift.String {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public typealias V2TIMFriendInfoListSucc = (_ infoList: Swift.Array<ImSDK_Plus_Swift.V2TIMFriendInfo>) -> (Swift.Void)
+public typealias V2TIMFriendInfoResultListSucc = (_ resultList: Swift.Array<ImSDK_Plus_Swift.V2TIMFriendInfoResult>) -> (Swift.Void)
+public typealias V2TIMFriendOperationResultSucc = (_ result: ImSDK_Plus_Swift.V2TIMFriendOperationResult) -> (Swift.Void)
+public typealias V2TIMFriendOperationResultListSucc = (_ resultList: Swift.Array<ImSDK_Plus_Swift.V2TIMFriendOperationResult>) -> (Swift.Void)
+public typealias V2TIMFriendCheckResultListSucc = (_ resultList: Swift.Array<ImSDK_Plus_Swift.V2TIMFriendCheckResult>) -> (Swift.Void)
+public typealias V2TIMFriendGroupListSucc = (_ groups: Swift.Array<ImSDK_Plus_Swift.V2TIMFriendGroup>) -> (Swift.Void)
+public typealias V2TIMFriendApplicationResultSucc = (_ result: ImSDK_Plus_Swift.V2TIMFriendApplicationResult) -> (Swift.Void)
+public typealias V2TIMOfficialAccountInfoResultListSucc = (_ resultList: Swift.Array<ImSDK_Plus_Swift.V2TIMOfficialAccountInfoResult>) -> (Swift.Void)
+public typealias V2TIMFollowOperationResultListSucc = (_ resultList: Swift.Array<ImSDK_Plus_Swift.V2TIMFollowOperationResult>) -> (Swift.Void)
+public typealias V2TIMUserInfoResultSucc = (_ nextCursor: Swift.String, _ userInfoList: Swift.Array<ImSDK_Plus_Swift.V2TIMUserFullInfo>) -> (Swift.Void)
+public typealias V2TIMFollowInfoResultListSucc = (_ resultList: Swift.Array<ImSDK_Plus_Swift.V2TIMFollowInfo>) -> (Swift.Void)
+public typealias V2TIMFollowTypeCheckResultListSucc = (_ resultList: Swift.Array<ImSDK_Plus_Swift.V2TIMFollowTypeCheckResult>) -> (Swift.Void)
+public enum V2TIMFriendApplicationType : Swift.Int {
+  case V2TIM_FRIEND_APPLICATION_COME_IN
+  case V2TIM_FRIEND_APPLICATION_SEND_OUT
+  case V2TIM_FRIEND_APPLICATION_BOTH
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMFriendType : Swift.Int {
+  case V2TIM_FRIEND_TYPE_SINGLE
+  case V2TIM_FRIEND_TYPE_BOTH
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMFriendRelationType : Swift.Int {
+  case V2TIM_FRIEND_RELATION_TYPE_NONE
+  case V2TIM_FRIEND_RELATION_TYPE_IN_MY_FRIEND_LIST
+  case V2TIM_FRIEND_RELATION_TYPE_IN_OTHER_FRIEND_LIST
+  case V2TIM_FRIEND_RELATION_TYPE_BOTH_WAY
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMFriendAcceptType : Swift.Int {
+  case V2TIM_FRIEND_ACCEPT_AGREE
+  case V2TIM_FRIEND_ACCEPT_AGREE_AND_ADD
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMFollowType : Swift.Int {
+  case V2TIM_FOLLOW_TYPE_NONE
+  case V2TIM_FOLLOW_TYPE_IN_MY_FOLLOWING_LIST
+  case V2TIM_FOLLOW_TYPE_IN_MY_FOLLOWERS_LIST
+  case V2TIM_FOLLOW_TYPE_IN_BOTH_FOLLOWERS_LIST
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func addFriendListener(listener: ImSDK_Plus_Swift.V2TIMFriendshipListener)
+  public func removeFriendListener(listener: ImSDK_Plus_Swift.V2TIMFriendshipListener)
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func getFriendList(succ: @escaping ImSDK_Plus_Swift.V2TIMFriendInfoListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func getFriendsInfo(userIDList: Swift.Array<Swift.String>, succ: @escaping ImSDK_Plus_Swift.V2TIMFriendInfoResultListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func setFriendInfo(info: ImSDK_Plus_Swift.V2TIMFriendInfo, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func searchFriends(searchParam: ImSDK_Plus_Swift.V2TIMFriendSearchParam, succ: @escaping ImSDK_Plus_Swift.V2TIMFriendInfoResultListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func addFriend(application: ImSDK_Plus_Swift.V2TIMFriendAddApplication, succ: ImSDK_Plus_Swift.V2TIMFriendOperationResultSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func deleteFromFriendList(userIDList: Swift.Array<Swift.String>, deleteType: ImSDK_Plus_Swift.V2TIMFriendType, succ: ImSDK_Plus_Swift.V2TIMFriendOperationResultListSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func checkFriend(userIDList: Swift.Array<Swift.String>, checkType: ImSDK_Plus_Swift.V2TIMFriendType, succ: @escaping ImSDK_Plus_Swift.V2TIMFriendCheckResultListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func getFriendApplicationList(succ: @escaping ImSDK_Plus_Swift.V2TIMFriendApplicationResultSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func acceptFriendApplication(application: ImSDK_Plus_Swift.V2TIMFriendApplication, acceptType: ImSDK_Plus_Swift.V2TIMFriendAcceptType, succ: ImSDK_Plus_Swift.V2TIMFriendOperationResultSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func acceptFriendApplication(application: ImSDK_Plus_Swift.V2TIMFriendApplication, acceptType: ImSDK_Plus_Swift.V2TIMFriendAcceptType, remark: Swift.String, succ: ImSDK_Plus_Swift.V2TIMFriendOperationResultSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func refuseFriendApplication(application: ImSDK_Plus_Swift.V2TIMFriendApplication, succ: ImSDK_Plus_Swift.V2TIMFriendOperationResultSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func deleteFriendApplication(application: ImSDK_Plus_Swift.V2TIMFriendApplication, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func setFriendApplicationRead(succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func addToBlackList(userIDList: Swift.Array<Swift.String>, succ: ImSDK_Plus_Swift.V2TIMFriendOperationResultListSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func deleteFromBlackList(userIDList: Swift.Array<Swift.String>, succ: ImSDK_Plus_Swift.V2TIMFriendOperationResultListSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func getBlackList(succ: @escaping ImSDK_Plus_Swift.V2TIMFriendInfoListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func createFriendGroup(groupName: Swift.String, userIDList: Swift.Array<Swift.String>?, succ: ImSDK_Plus_Swift.V2TIMFriendOperationResultListSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func getFriendGroupList(groupNameList: Swift.Array<Swift.String>?, succ: @escaping ImSDK_Plus_Swift.V2TIMFriendGroupListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func deleteFriendGroup(groupNameList: Swift.Array<Swift.String>, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func renameFriendGroup(oldName: Swift.String, newName: Swift.String, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func addFriendsToFriendGroup(groupName: Swift.String, userIDList: Swift.Array<Swift.String>, succ: ImSDK_Plus_Swift.V2TIMFriendOperationResultListSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func deleteFriendsFromFriendGroup(groupName: Swift.String, userIDList: Swift.Array<Swift.String>, succ: ImSDK_Plus_Swift.V2TIMFriendOperationResultListSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func subscribeOfficialAccount(officialAccountID: Swift.String, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func unsubscribeOfficialAccount(officialAccountID: Swift.String, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func getOfficialAccountsInfo(officialAccountIDList: Swift.Array<Swift.String>, succ: ImSDK_Plus_Swift.V2TIMOfficialAccountInfoResultListSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func followUser(userIDList: Swift.Array<Swift.String>, succ: ImSDK_Plus_Swift.V2TIMFollowOperationResultListSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func unfollowUser(userIDList: Swift.Array<Swift.String>, succ: ImSDK_Plus_Swift.V2TIMFollowOperationResultListSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func getMyFollowingList(nextCursor: Swift.String?, succ: ImSDK_Plus_Swift.V2TIMUserInfoResultSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func getMyFollowersList(nextCursor: Swift.String?, succ: ImSDK_Plus_Swift.V2TIMUserInfoResultSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func getMutualFollowersList(nextCursor: Swift.String?, succ: ImSDK_Plus_Swift.V2TIMUserInfoResultSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func getUserFollowInfo(userIDList: Swift.Array<Swift.String>, succ: ImSDK_Plus_Swift.V2TIMFollowInfoResultListSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func checkFollowType(userIDList: Swift.Array<Swift.String>, succ: ImSDK_Plus_Swift.V2TIMFollowTypeCheckResultListSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+}
+public protocol V2TIMFriendshipListener : AnyObject {
+  func onFriendApplicationListAdded(applicationList: Swift.Array<ImSDK_Plus_Swift.V2TIMFriendApplication>)
+  func onFriendApplicationListDeleted(userIDList: Swift.Array<Swift.String>)
+  func onFriendApplicationListRead()
+  func onFriendListAdded(infoList: Swift.Array<ImSDK_Plus_Swift.V2TIMFriendInfo>)
+  func onFriendListDeleted(userIDList: Swift.Array<Swift.String>)
+  func onBlackListAdded(infoList: Swift.Array<ImSDK_Plus_Swift.V2TIMFriendInfo>)
+  func onBlackListDeleted(userIDList: Swift.Array<Swift.String>)
+  func onFriendProfileChanged(infoList: Swift.Array<ImSDK_Plus_Swift.V2TIMFriendInfo>)
+  func onFriendGroupCreated(groupName: Swift.String, friendInfoList: Swift.Array<ImSDK_Plus_Swift.V2TIMFriendInfo>)
+  func onFriendGroupDeleted(groupNameList: Swift.Array<Swift.String>)
+  func onFriendGroupNameChanged(oldGroupName: Swift.String, newGroupName: Swift.String)
+  func onFriendsAddedToGroup(groupName: Swift.String, friendInfoList: Swift.Array<ImSDK_Plus_Swift.V2TIMFriendInfo>)
+  func onFriendsDeletedFromGroup(groupName: Swift.String, friendIDList: Swift.Array<Swift.String>)
+  func onOfficialAccountSubscribed(officialAccountInfo: ImSDK_Plus_Swift.V2TIMOfficialAccountInfo)
+  func onOfficialAccountUnsubscribed(officialAccountID: Swift.String)
+  func onOfficialAccountDeleted(officialAccountID: Swift.String)
+  func onOfficialAccountInfoChanged(officialAccountInfo: ImSDK_Plus_Swift.V2TIMOfficialAccountInfo)
+  func onMyFollowingListChanged(userInfoList: Swift.Array<ImSDK_Plus_Swift.V2TIMUserFullInfo>, isAdd: Swift.Bool)
+  func onMyFollowersListChanged(userInfoList: Swift.Array<ImSDK_Plus_Swift.V2TIMUserFullInfo>, isAdd: Swift.Bool)
+  func onMutualFollowersListChanged(userInfoList: Swift.Array<ImSDK_Plus_Swift.V2TIMUserFullInfo>, isAdd: Swift.Bool)
+}
+public class V2TIMFriendInfoResult {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var resultCode: Swift.Int {
+    get
+    set(newValue)
+  }
+  public var resultInfo: Swift.String {
+    get
+    set(newValue)
+  }
+  public var relation: ImSDK_Plus_Swift.V2TIMFriendRelationType {
+    get
+    set(newValue)
+  }
+  public var friendInfo: ImSDK_Plus_Swift.V2TIMFriendInfo? {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public class V2TIMFriendInfo {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var userID: Swift.String {
+    get
+    set(newValue)
+  }
+  public var friendRemark: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var friendAddTime: Swift.UInt {
+    get
+  }
+  public var friendCustomInfo: Swift.Dictionary<Swift.String, Foundation.Data>? {
+    get
+    set(newValue)
+  }
+  public var friendGroups: Swift.Array<Swift.String> {
+    get
+  }
+  public var userFullInfo: ImSDK_Plus_Swift.V2TIMUserFullInfo {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMFriendAddApplication {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var userID: Swift.String {
+    get
+    set(newValue)
+  }
+  public var friendRemark: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var friendGroup: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var addWording: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var addSource: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var addType: ImSDK_Plus_Swift.V2TIMFriendType {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public class V2TIMFriendApplicationResult {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var unreadCount: Swift.UInt {
+    get
+    set(newValue)
+  }
+  public var applicationList: Swift.Array<ImSDK_Plus_Swift.V2TIMFriendApplication> {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public class V2TIMFriendApplication {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var userID: Swift.String {
+    get
+  }
+  public var nickName: Swift.String? {
+    get
+  }
+  public var faceUrl: Swift.String? {
+    get
+  }
+  public var addTime: Swift.UInt {
+    get
+  }
+  public var addSource: Swift.String? {
+    get
+  }
+  public var addWording: Swift.String? {
+    get
+  }
+  public var type: ImSDK_Plus_Swift.V2TIMFriendApplicationType {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMFriendCheckResult {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var userID: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var resultCode: Swift.Int {
+    get
+    set(newValue)
+  }
+  public var resultInfo: Swift.String {
+    get
+    set(newValue)
+  }
+  public var relationType: ImSDK_Plus_Swift.V2TIMFriendRelationType {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public class V2TIMFriendOperationResult {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var userID: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var resultCode: Swift.Int {
+    get
+    set(newValue)
+  }
+  public var resultInfo: Swift.String {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public class V2TIMFriendGroup {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var groupName: Swift.String {
+    get
+    set(newValue)
+  }
+  public var userCount: Swift.UInt {
+    get
+    set(newValue)
+  }
+  public var friendList: Swift.Array<Swift.String> {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public class V2TIMFriendSearchParam {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var keywordList: Swift.Array<Swift.String> {
+    get
+    set(newValue)
+  }
+  public var isSearchUserID: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var isSearchNickName: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var isSearchRemark: Swift.Bool {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public class V2TIMOfficialAccountInfo {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var officialAccountID: Swift.String? {
+    get
+  }
+  public var officialAccountName: Swift.String? {
+    get
+  }
+  public var faceUrl: Swift.String? {
+    get
+  }
+  public var ownerUserID: Swift.String? {
+    get
+  }
+  public var organization: Swift.String? {
+    get
+  }
+  public var introduction: Swift.String? {
+    get
+  }
+  public var customData: Swift.String? {
+    get
+  }
+  public var createTime: Swift.UInt64? {
+    get
+  }
+  public var subscriberCount: Swift.UInt64? {
+    get
+  }
+  public var subscribeTime: Swift.UInt64? {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMOfficialAccountInfoResult {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var resultCode: Swift.Int {
+    get
+    set(newValue)
+  }
+  public var resultInfo: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var officialAccountInfo: ImSDK_Plus_Swift.V2TIMOfficialAccountInfo? {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public class V2TIMFollowOperationResult {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var userID: Swift.String? {
+    get
+  }
+  public var resultCode: Swift.Int {
+    get
+    set(newValue)
+  }
+  public var resultInfo: Swift.String {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public class V2TIMFollowInfo {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var resultCode: Swift.Int {
+    get
+    set(newValue)
+  }
+  public var resultInfo: Swift.String {
+    get
+    set(newValue)
+  }
+  public var userID: Swift.String? {
+    get
+  }
+  public var followingCount: Swift.UInt64? {
+    get
+  }
+  public var followersCount: Swift.UInt64? {
+    get
+  }
+  public var mutualFollowersCount: Swift.UInt64? {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMFollowTypeCheckResult {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var userID: Swift.String? {
+    get
+  }
+  public var resultCode: Swift.Int {
+    get
+    set(newValue)
+  }
+  public var resultInfo: Swift.String {
+    get
+    set(newValue)
+  }
+  public var followType: ImSDK_Plus_Swift.V2TIMFollowType? {
+    get
+  }
+  @objc deinit
+}
+public typealias V2TIMGroupInfoListSucc = (_ groupList: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupInfo>) -> (Swift.Void)
+public typealias V2TIMGroupInfoResultListSucc = (_ groupResultList: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupInfoResult>) -> (Swift.Void)
+public typealias V2TIMGroupSearchResultSucc = (_ searchResult: ImSDK_Plus_Swift.V2TIMGroupSearchResult) -> (Swift.Void)
+public typealias V2TIMGroupAttributeListSucc = (_ groupAttributeList: Swift.Dictionary<Swift.String, Swift.String>) -> (Swift.Void)
+public typealias V2TIMGroupMemberInfoListSucc = (_ memberList: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupMemberFullInfo>) -> (Swift.Void)
+public typealias V2TIMGroupMemberInfoResultSucc = (_ nextSeq: Swift.UInt, _ memberList: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupMemberFullInfo>) -> (Swift.Void)
+public typealias V2TIMGroupMemberInfoListSearchSucc = (_ memberList: Swift.Dictionary<Swift.String, Swift.Array<ImSDK_Plus_Swift.V2TIMGroupMemberFullInfo>>) -> (Swift.Void)
+public typealias V2TIMGroupMemberSearchResultSucc = (_ result: ImSDK_Plus_Swift.V2TIMGroupMemberSearchResult) -> (Swift.Void)
+public typealias V2TIMGroupMemberOperationResultListSucc = (_ resultList: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupMemberOperationResult>) -> (Swift.Void)
+public typealias V2TIMGroupApplicationResultSucc = (_ result: ImSDK_Plus_Swift.V2TIMGroupApplicationResult) -> (Swift.Void)
+public typealias V2TIMGroupOnlineMemberCountSucc = (_ count: Swift.Int) -> (Swift.Void)
+public typealias V2TIMGroupCounterResultSucc = (_ groupCounters: Swift.Dictionary<Swift.String, Swift.Int>) -> (Swift.Void)
+public enum V2TIMGroupAddOpt : Swift.Int {
+  case V2TIM_GROUP_ADD_FORBID
+  case V2TIM_GROUP_ADD_AUTH
+  case V2TIM_GROUP_ADD_ANY
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMGroupMemberResult : Swift.Int {
+  case V2TIM_GROUP_MEMBER_RESULT_FAIL
+  case V2TIM_GROUP_MEMBER_RESULT_SUCC
+  case V2TIM_GROUP_MEMBER_RESULT_INVALID
+  case V2TIM_GROUP_MEMBER_RESULT_PENDING
+  case V2TIM_GROUP_MEMBER_RESULT_OVERLIMIT
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMGroupMemberFilter : Swift.UInt {
+  case V2TIM_GROUP_MEMBER_FILTER_ALL
+  case V2TIM_GROUP_MEMBER_FILTER_OWNER
+  case V2TIM_GROUP_MEMBER_FILTER_ADMIN
+  case V2TIM_GROUP_MEMBER_FILTER_COMMON
+  public init?(rawValue: Swift.UInt)
+  public typealias RawValue = Swift.UInt
+  public var rawValue: Swift.UInt {
+    get
+  }
+}
+public enum V2TIMGroupApplicationType : Swift.Int {
+  case V2TIM_GROUP_JOIN_APPLICATION_NEED_APPROVED_BY_ADMIN
+  case V2TIM_GROUP_INVITE_APPLICATION_NEED_APPROVED_BY_INVITEE
+  case V2TIM_GROUP_INVITE_APPLICATION_NEED_APPROVED_BY_ADMIN
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMGroupApplicationHandleStatus : Swift.Int {
+  case V2TIM_GROUP_APPLICATION_HANDLE_STATUS_UNHANDLED
+  case V2TIM_GROUP_APPLICATION_HANDLE_STATUS_HANDLED_BY_OTHER
+  case V2TIM_GROUP_APPLICATION_HANDLE_STATUS_HANDLED_BY_SELF
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMGroupApplicationHandleResult : Swift.Int {
+  case V2TIM_GROUP_APPLICATION_HANDLE_RESULT_REFUSE
+  case V2TIM_GROUP_APPLICATION_HANDLE_RESULT_AGREE
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func createGroup(info: ImSDK_Plus_Swift.V2TIMGroupInfo, memberList: Swift.Array<ImSDK_Plus_Swift.V2TIMCreateGroupMemberInfo>?, succ: ImSDK_Plus_Swift.V2TIMCreateGroupSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func getJoinedGroupList(succ: @escaping ImSDK_Plus_Swift.V2TIMGroupInfoListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func getGroupsInfo(groupIDList: Swift.Array<Swift.String>, succ: @escaping ImSDK_Plus_Swift.V2TIMGroupInfoResultListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func searchGroups(searchParam: ImSDK_Plus_Swift.V2TIMGroupSearchParam, succ: @escaping ImSDK_Plus_Swift.V2TIMGroupInfoListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func searchCloudGroups(searchParam: ImSDK_Plus_Swift.V2TIMGroupSearchParam, succ: @escaping ImSDK_Plus_Swift.V2TIMGroupSearchResultSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func setGroupInfo(info: ImSDK_Plus_Swift.V2TIMGroupInfo, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func initGroupAttributes(groupID: Swift.String, attributes: Swift.Dictionary<Swift.String, Swift.String>, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func setGroupAttributes(groupID: Swift.String, attributes: Swift.Dictionary<Swift.String, Swift.String>, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func deleteGroupAttributes(groupID: Swift.String, keys: Swift.Array<Swift.String>?, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func getGroupAttributes(groupID: Swift.String, keys: Swift.Array<Swift.String>?, succ: @escaping ImSDK_Plus_Swift.V2TIMGroupAttributeListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func getGroupOnlineMemberCount(groupID: Swift.String, succ: @escaping ImSDK_Plus_Swift.V2TIMGroupOnlineMemberCountSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func setGroupCounters(groupID: Swift.String, counters: Swift.Dictionary<Swift.String, Swift.Int>, succ: @escaping ImSDK_Plus_Swift.V2TIMGroupCounterResultSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func getGroupCounters(groupID: Swift.String, keys: Swift.Array<Swift.String>?, succ: @escaping ImSDK_Plus_Swift.V2TIMGroupCounterResultSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func increaseGroupCounter(groupID: Swift.String, key: Swift.String, value: Swift.Int, succ: @escaping ImSDK_Plus_Swift.V2TIMGroupCounterResultSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func decreaseGroupCounter(groupID: Swift.String, key: Swift.String, value: Swift.Int, succ: @escaping ImSDK_Plus_Swift.V2TIMGroupCounterResultSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func getGroupMemberList(groupID: Swift.String, filter: ImSDK_Plus_Swift.V2TIMGroupMemberFilter, nextSeq: Swift.UInt, succ: @escaping ImSDK_Plus_Swift.V2TIMGroupMemberInfoResultSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func getGroupMembersInfo(groupID: Swift.String, memberList: Swift.Array<Swift.String>, succ: @escaping ImSDK_Plus_Swift.V2TIMGroupMemberInfoListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func searchGroupMembers(searchParam: ImSDK_Plus_Swift.V2TIMGroupMemberSearchParam, succ: @escaping ImSDK_Plus_Swift.V2TIMGroupMemberInfoListSearchSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func searchCloudGroupMembers(searchParam: ImSDK_Plus_Swift.V2TIMGroupMemberSearchParam, succ: @escaping ImSDK_Plus_Swift.V2TIMGroupMemberSearchResultSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func setGroupMemberInfo(groupID: Swift.String, info: ImSDK_Plus_Swift.V2TIMGroupMemberFullInfo, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func muteGroupMember(groupID: Swift.String, memberUserID: Swift.String, muteTimeSeconds: Swift.UInt, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func muteAllGroupMembers(groupID: Swift.String, isMute: Swift.Bool, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func inviteUserToGroup(groupID: Swift.String, userList: Swift.Array<Swift.String>, succ: ImSDK_Plus_Swift.V2TIMGroupMemberOperationResultListSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func kickGroupMember(groupID: Swift.String, memberList: Swift.Array<Swift.String>, reason: Swift.String?, duration: Swift.UInt, succ: ImSDK_Plus_Swift.V2TIMGroupMemberOperationResultListSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func setGroupMemberRole(groupID: Swift.String, memberUserID: Swift.String, newRole: ImSDK_Plus_Swift.V2TIMGroupMemberRole, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func markGroupMemberList(groupID: Swift.String, memberList: Swift.Array<Swift.String>, markType: Swift.UInt, enableMark: Swift.Bool, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func transferGroupOwner(groupID: Swift.String, memberUserID: Swift.String, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  @available(*, deprecated, message: "use kickGroupMember(groupID:memberList:reason:duration:succ:fail:) instead")
+  public func kickGroupMember(groupID: Swift.String, memberList: Swift.Array<Swift.String>, reason: Swift.String?, succ: ImSDK_Plus_Swift.V2TIMGroupMemberOperationResultListSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func getGroupApplicationList(succ: @escaping ImSDK_Plus_Swift.V2TIMGroupApplicationResultSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func acceptGroupApplication(application: ImSDK_Plus_Swift.V2TIMGroupApplication, reason: Swift.String?, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func refuseGroupApplication(application: ImSDK_Plus_Swift.V2TIMGroupApplication, reason: Swift.String?, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func setGroupApplicationRead(succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+}
+public class V2TIMGroupInfo {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var groupID: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var groupType: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var isSupportTopic: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var groupName: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var notification: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var introduction: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var faceURL: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var allMuted: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var customInfo: Swift.Dictionary<Swift.String, Foundation.Data>? {
+    get
+    set(newValue)
+  }
+  public var owner: Swift.String {
+    get
+  }
+  public var createTime: Swift.UInt {
+    get
+  }
+  public var groupAddOpt: ImSDK_Plus_Swift.V2TIMGroupAddOpt {
+    get
+    set(newValue)
+  }
+  public var groupApproveOpt: ImSDK_Plus_Swift.V2TIMGroupAddOpt {
+    get
+    set(newValue)
+  }
+  public var lastInfoTime: Swift.UInt {
+    get
+  }
+  public var lastMessageTime: Swift.UInt {
+    get
+  }
+  public var memberCount: Swift.UInt {
+    get
+  }
+  @available(*, deprecated, message: "use getGroupOnlineMemberCount(groupID:succ:fail:) instead")
+  public var onlineCount: Swift.UInt {
+    get
+  }
+  public var memberMaxCount: Swift.UInt {
+    get
+  }
+  public var role: Swift.UInt {
+    get
+  }
+  public var recvOpt: ImSDK_Plus_Swift.V2TIMReceiveMessageOpt {
+    get
+  }
+  public var joinTime: Swift.UInt {
+    get
+  }
+  public var enablePermissionGroup: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var defaultPermissions: Swift.UInt64 {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public class V2TIMGroupInfoResult {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var resultCode: Swift.Int {
+    get
+    set(newValue)
+  }
+  public var resultMsg: Swift.String {
+    get
+    set(newValue)
+  }
+  public var info: ImSDK_Plus_Swift.V2TIMGroupInfo? {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public class V2TIMGroupApplication {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var groupID: Swift.String {
+    get
+  }
+  public var fromUser: Swift.String? {
+    get
+  }
+  public var fromUserNickName: Swift.String? {
+    get
+  }
+  public var fromUserFaceUrl: Swift.String? {
+    get
+  }
+  public var toUser: Swift.String? {
+    get
+  }
+  public var addTime: Swift.UInt {
+    get
+  }
+  public var requestMsg: Swift.String? {
+    get
+  }
+  public var handledMsg: Swift.String? {
+    get
+  }
+  public var applicationType: ImSDK_Plus_Swift.V2TIMGroupApplicationType {
+    get
+  }
+  public var handleStatus: ImSDK_Plus_Swift.V2TIMGroupApplicationHandleStatus {
+    get
+  }
+  public var handleResult: ImSDK_Plus_Swift.V2TIMGroupApplicationHandleResult {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMGroupMemberOperationResult {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var userID: Swift.String {
+    get
+    set(newValue)
+  }
+  public var result: ImSDK_Plus_Swift.V2TIMGroupMemberResult {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public class V2TIMCreateGroupMemberInfo {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var userID: Swift.String {
+    get
+    set(newValue)
+  }
+  public var role: Swift.UInt {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public class V2TIMGroupApplicationResult {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var unreadCount: Swift.UInt {
+    get
+    set(newValue)
+  }
+  public var applicationList: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupApplication> {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMGroupSearchParam {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var keywordList: Swift.Array<Swift.String> {
+    get
+    set(newValue)
+  }
+  public var isSearchGroupID: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var isSearchGroupName: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var keywordListMatchType: ImSDK_Plus_Swift.V2TIMKeywordListMatchType {
+    get
+    set(newValue)
+  }
+  public var searchCount: Swift.UInt {
+    get
+    set(newValue)
+  }
+  public var searchCursor: Swift.String {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public class V2TIMGroupSearchResult {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var isFinished: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var totalCount: Swift.UInt {
+    get
+    set(newValue)
+  }
+  public var searchCursor: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var groupList: [ImSDK_Plus_Swift.V2TIMGroupInfo] {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMGroupMemberSearchParam {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var keywordList: Swift.Array<Swift.String> {
+    get
+    set(newValue)
+  }
+  public var groupIDList: Swift.Array<Swift.String>? {
+    get
+    set(newValue)
+  }
+  public var isSearchMemberUserID: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var isSearchMemberNickName: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var isSearchMemberRemark: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var isSearchMemberNameCard: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var keywordListMatchType: ImSDK_Plus_Swift.V2TIMKeywordListMatchType {
+    get
+    set(newValue)
+  }
+  public var searchCount: Swift.UInt {
+    get
+    set(newValue)
+  }
+  public var searchCursor: Swift.String {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public class V2TIMGroupMemberSearchResult {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var isFinished: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var totalCount: Swift.UInt {
+    get
+    set(newValue)
+  }
+  public var searchCursor: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var groupList: [Swift.String : Swift.Array<ImSDK_Plus_Swift.V2TIMGroupMemberFullInfo>] {
+    get
+  }
+  @objc deinit
+}
+public typealias V2TIMMessageListSucc = (_ msgs: Swift.Array<ImSDK_Plus_Swift.V2TIMMessage>) -> (Swift.Void)
+public typealias V2TIMSearchMessageListSucc = (_ searchResult: ImSDK_Plus_Swift.V2TIMMessageSearchResult) -> (Swift.Void)
+public typealias V2TIMProgress = (_ progress: Swift.Int) -> (Swift.Void)
+public typealias V2TIMDownLoadProgress = (_ curSize: Swift.Int, _ totalSize: Swift.Int) -> (Swift.Void)
+public typealias V2TIMReceiveMessageOptListSucc = (_ optList: Swift.Array<ImSDK_Plus_Swift.V2TIMReceiveMessageOptInfo>) -> (Swift.Void)
+public typealias V2TIMReceiveMessageOptSucc = (_ opt: ImSDK_Plus_Swift.V2TIMReceiveMessageOptInfo) -> (Swift.Void)
+public typealias V2TIMMessageReadReceiptsSucc = (_ receiptList: Swift.Array<ImSDK_Plus_Swift.V2TIMMessageReceipt>) -> (Swift.Void)
+public typealias V2TIMGroupMessageReadMemberListSucc = (_ members: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupMemberInfo>, _ nextSeq: Swift.Int, _ isFinished: Swift.Bool) -> (Swift.Void)
+public typealias V2TIMMessageModifyCompletion = (_ code: Swift.Int, _ desc: Swift.String, _ msg: ImSDK_Plus_Swift.V2TIMMessage?) -> (Swift.Void)
+public typealias V2TIMMessageExtensionsSetSucc = (_ extensionResultList: Swift.Array<ImSDK_Plus_Swift.V2TIMMessageExtensionResult>) -> (Swift.Void)
+public typealias V2TIMMessageExtensionsGetSucc = (_ extensionList: Swift.Array<ImSDK_Plus_Swift.V2TIMMessageExtension>) -> (Swift.Void)
+public typealias V2TIMMessageExtensionsDeleteSucc = (_ extensionResultList: Swift.Array<ImSDK_Plus_Swift.V2TIMMessageExtensionResult>) -> (Swift.Void)
+public typealias V2TIMGetMessageReactionsSucc = (_ resultList: Swift.Array<ImSDK_Plus_Swift.V2TIMMessageReactionResult>) -> (Swift.Void)
+public typealias V2TIMGetMessageReactionUserListSucc = (_ userList: Swift.Array<ImSDK_Plus_Swift.V2TIMUserInfo>, _ nextSeq: Swift.UInt32, _ isFinished: Swift.Bool) -> (Swift.Void)
+public typealias V2TIMTranslateTextCompletion = (_ code: Swift.Int, _ desc: Swift.String, _ result: Swift.Dictionary<Swift.String, Swift.String>) -> (Swift.Void)
+public typealias V2TIMConvertVoiceToTextCompletion = (_ code: Swift.Int, _ desc: Swift.String, _ result: Swift.String) -> (Swift.Void)
+public typealias V2TIMPinnedMessageListSucc = (_ messageList: Swift.Array<ImSDK_Plus_Swift.V2TIMMessage>) -> (Swift.Void)
+public let kImSDK_MesssageAtALL: Swift.String
+public enum V2TIMMessageStatus : Swift.Int {
+  case V2TIM_MSG_STATUS_SENDING
+  case V2TIM_MSG_STATUS_SEND_SUCC
+  case V2TIM_MSG_STATUS_SEND_FAIL
+  case V2TIM_MSG_STATUS_HAS_DELETED
+  case V2TIM_MSG_STATUS_LOCAL_IMPORTED
+  case V2TIM_MSG_STATUS_LOCAL_REVOKED
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMElemType : Swift.Int {
+  case V2TIM_ELEM_TYPE_NONE
+  case V2TIM_ELEM_TYPE_TEXT
+  case V2TIM_ELEM_TYPE_CUSTOM
+  case V2TIM_ELEM_TYPE_IMAGE
+  case V2TIM_ELEM_TYPE_SOUND
+  case V2TIM_ELEM_TYPE_VIDEO
+  case V2TIM_ELEM_TYPE_FILE
+  case V2TIM_ELEM_TYPE_LOCATION
+  case V2TIM_ELEM_TYPE_FACE
+  case V2TIM_ELEM_TYPE_GROUP_TIPS
+  case V2TIM_ELEM_TYPE_MERGER
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMOfflinePushFlag : Swift.Int {
+  case V2TIM_OFFLINE_PUSH_DEFAULT
+  case V2TIM_OFFLINE_PUSH_NO_PUSH
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMImageType : Swift.Int {
+  case V2TIM_IMAGE_TYPE_ORIGIN
+  case V2TIM_IMAGE_TYPE_THUMB
+  case V2TIM_IMAGE_TYPE_LARGE
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMGroupTipsType : Swift.Int {
+  case V2TIM_GROUP_TIPS_TYPE_NONE
+  case V2TIM_GROUP_TIPS_TYPE_JOIN
+  case V2TIM_GROUP_TIPS_TYPE_INVITE
+  case V2TIM_GROUP_TIPS_TYPE_QUIT
+  case V2TIM_GROUP_TIPS_TYPE_KICKED
+  case V2TIM_GROUP_TIPS_TYPE_SET_ADMIN
+  case V2TIM_GROUP_TIPS_TYPE_CANCEL_ADMIN
+  case V2TIM_GROUP_TIPS_TYPE_GROUP_INFO_CHANGE
+  case V2TIM_GROUP_TIPS_TYPE_MEMBER_INFO_CHANGE
+  case V2TIM_GROUP_TIPS_TYPE_TOPIC_INFO_CHANGE
+  case V2TIM_GROUP_TIPS_TYPE_PINNED_MESSAGE_ADDED
+  case V2TIM_GROUP_TIPS_TYPE_PINNED_MESSAGE_DELETED
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMGroupInfoChangeType : Swift.Int {
+  case V2TIM_GROUP_INFO_CHANGE_TYPE_NONE
+  case V2TIM_GROUP_INFO_CHANGE_TYPE_NAME
+  case V2TIM_GROUP_INFO_CHANGE_TYPE_INTRODUCTION
+  case V2TIM_GROUP_INFO_CHANGE_TYPE_NOTIFICATION
+  case V2TIM_GROUP_INFO_CHANGE_TYPE_FACE
+  case V2TIM_GROUP_INFO_CHANGE_TYPE_OWNER
+  case V2TIM_GROUP_INFO_CHANGE_TYPE_CUSTOM
+  case V2TIM_GROUP_INFO_CHANGE_TYPE_SHUT_UP_ALL
+  case V2TIM_GROUP_INFO_CHANGE_TYPE_TOPIC_CUSTOM_DATA
+  case V2TIM_GROUP_INFO_CHANGE_TYPE_RECEIVE_MESSAGE_OPT
+  case V2TIM_GROUP_INFO_CHANGE_TYPE_GROUP_ADD_OPT
+  case V2TIM_GROUP_INFO_CHANGE_TYPE_GROUP_APPROVE_OPT
+  case V2TIM_GROUP_INFO_CHANGE_TYPE_ENABLE_PERMISSION_GROUP
+  case V2TIM_GROUP_INFO_CHANGE_TYPE_DEFAULT_PERMISSIONS
+  case V2TIM_GROUP_INFO_CHANGE_TYPE_TOPIC_ADD_OPT
+  case V2TIM_GROUP_INFO_CHANGE_TYPE_TOPIC_APPROVE_OPT
+  case V2TIM_GROUP_INFO_CHANGE_TYPE_TOPIC_MEMBER_MAX_COUNT
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMMessageGetType : Swift.Int {
+  case V2TIM_GET_CLOUD_OLDER_MSG
+  case V2TIM_GET_CLOUD_NEWER_MSG
+  case V2TIM_GET_LOCAL_OLDER_MSG
+  case V2TIM_GET_LOCAL_NEWER_MSG
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMReceiveMessageOpt : Swift.Int {
+  case V2TIM_RECEIVE_MESSAGE
+  case V2TIM_NOT_RECEIVE_MESSAGE
+  case V2TIM_RECEIVE_NOT_NOTIFY_MESSAGE
+  case V2TIM_RECEIVE_NOT_NOTIFY_MESSAGE_EXCEPT_AT
+  case V2TIM_NOT_RECEIVE_MESSAGE_EXCEPT_AT
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMKeywordListMatchType : Swift.Int {
+  case V2TIM_KEYWORD_LIST_MATCH_TYPE_OR
+  case V2TIM_KEYWORD_LIST_MATCH_TYPE_AND
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMGroupMessageReadMembersFilter : Swift.Int {
+  case V2TIM_GROUP_MESSAGE_READ_MEMBERS_FILTER_READ
+  case V2TIM_GROUP_MESSAGE_READ_MEMBERS_FILTER_UNREAD
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMIOSOfflinePushType : Swift.Int {
+  case V2TIM_IOS_OFFLINE_PUSH_TYPE_APNS
+  case V2TIM_IOS_OFFLINE_PUSH_TYPE_VOIP
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func addAdvancedMsgListener(listener: ImSDK_Plus_Swift.V2TIMAdvancedMsgListener)
+  public func removeAdvancedMsgListener(listener: ImSDK_Plus_Swift.V2TIMAdvancedMsgListener)
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func createTextMessage(text: Swift.String) -> ImSDK_Plus_Swift.V2TIMMessage?
+  @available(*, deprecated, message: "use createAtSignedGroupMessage(message:atUserList:) instead")
+  public func createTextAtMessage(text: Swift.String, atUserList: Swift.Array<Swift.String>) -> ImSDK_Plus_Swift.V2TIMMessage?
+  public func createCustomMessage(data: Foundation.Data) -> ImSDK_Plus_Swift.V2TIMMessage?
+  public func createCustomMessage(data: Foundation.Data, desc: Swift.String, ext: Swift.String) -> ImSDK_Plus_Swift.V2TIMMessage?
+  public func createImageMessage(imagePath: Swift.String) -> ImSDK_Plus_Swift.V2TIMMessage?
+  public func createSoundMessage(audioFilePath: Swift.String, duration: Swift.Int) -> ImSDK_Plus_Swift.V2TIMMessage?
+  public func createVideoMessage(videoFilePath: Swift.String, type: Swift.String, duration: Swift.Int, snapshotPath: Swift.String) -> ImSDK_Plus_Swift.V2TIMMessage?
+  public func createFileMessage(filePath: Swift.String, fileName: Swift.String) -> ImSDK_Plus_Swift.V2TIMMessage?
+  public func createLocationMessage(desc: Swift.String, longitude: Swift.Double, latitude: Swift.Double) -> ImSDK_Plus_Swift.V2TIMMessage?
+  public func createFaceMessage(index: Swift.Int, data: Foundation.Data?) -> ImSDK_Plus_Swift.V2TIMMessage?
+  public func createMergerMessage(messageList: Swift.Array<ImSDK_Plus_Swift.V2TIMMessage>, title: Swift.String?, abstractList: Swift.Array<Swift.String>, compatibleText: Swift.String) -> ImSDK_Plus_Swift.V2TIMMessage?
+  public func createForwardMessage(message: ImSDK_Plus_Swift.V2TIMMessage) -> ImSDK_Plus_Swift.V2TIMMessage?
+  public func createTargetedGroupMessage(message: ImSDK_Plus_Swift.V2TIMMessage, receiverList: Swift.Array<Swift.String>) -> ImSDK_Plus_Swift.V2TIMMessage?
+  public func createAtSignedGroupMessage(message: ImSDK_Plus_Swift.V2TIMMessage, atUserList: Swift.Array<Swift.String>) -> ImSDK_Plus_Swift.V2TIMMessage?
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func sendMessage(message: ImSDK_Plus_Swift.V2TIMMessage, receiver: Swift.String?, groupID: Swift.String?, priority: ImSDK_Plus_Swift.V2TIMMessagePriority, onlineUserOnly: Swift.Bool, offlinePushInfo: ImSDK_Plus_Swift.V2TIMOfflinePushInfo?, progress: ImSDK_Plus_Swift.V2TIMProgress?, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?) -> Swift.String?
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func setC2CReceiveMessageOpt(userIDList: Swift.Array<Swift.String>, opt: ImSDK_Plus_Swift.V2TIMReceiveMessageOpt, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func getC2CReceiveMessageOpt(userIDList: Swift.Array<Swift.String>, succ: ImSDK_Plus_Swift.V2TIMReceiveMessageOptListSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func setGroupReceiveMessageOpt(groupID: Swift.String, opt: ImSDK_Plus_Swift.V2TIMReceiveMessageOpt, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func setAllReceiveMessageOpt(opt: ImSDK_Plus_Swift.V2TIMReceiveMessageOpt, startHour: Swift.Int, startMinute: Swift.Int, startSecond: Swift.Int, duration: Swift.Int, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func setAllReceiveMessageOpt(opt: ImSDK_Plus_Swift.V2TIMReceiveMessageOpt, startTimeStamp: Swift.Int, duration: Swift.Int, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func getAllReceiveMessageOpt(succ: ImSDK_Plus_Swift.V2TIMReceiveMessageOptSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func getC2CHistoryMessageList(userID: Swift.String, count: Swift.Int, lastMsg: ImSDK_Plus_Swift.V2TIMMessage?, succ: ImSDK_Plus_Swift.V2TIMMessageListSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func getGroupHistoryMessageList(groupID: Swift.String, count: Swift.Int, lastMsg: ImSDK_Plus_Swift.V2TIMMessage?, succ: ImSDK_Plus_Swift.V2TIMMessageListSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func getHistoryMessageList(option: ImSDK_Plus_Swift.V2TIMMessageListGetOption, succ: ImSDK_Plus_Swift.V2TIMMessageListSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func revokeMessage(msg: ImSDK_Plus_Swift.V2TIMMessage, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func modifyMessage(msg: ImSDK_Plus_Swift.V2TIMMessage, completion: ImSDK_Plus_Swift.V2TIMMessageModifyCompletion?)
+  public func deleteMessageFromLocalStorage(msg: ImSDK_Plus_Swift.V2TIMMessage, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func deleteMessages(msgList: Swift.Array<ImSDK_Plus_Swift.V2TIMMessage>, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func clearC2CHistoryMessage(userID: Swift.String, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func clearGroupHistoryMessage(groupID: Swift.String, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func insertGroupMessageToLocalStorage(msg: ImSDK_Plus_Swift.V2TIMMessage, to groupID: Swift.String, sender: Swift.String, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?) -> Swift.String?
+  public func insertC2CMessageToLocalStorage(msg: ImSDK_Plus_Swift.V2TIMMessage, to userID: Swift.String, sender: Swift.String, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?) -> Swift.String?
+  public func findMessages(messageIDList: Swift.Array<Swift.String>, succ: @escaping ImSDK_Plus_Swift.V2TIMMessageListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func searchLocalMessages(param: ImSDK_Plus_Swift.V2TIMMessageSearchParam, succ: @escaping ImSDK_Plus_Swift.V2TIMSearchMessageListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func searchCloudMessages(param: ImSDK_Plus_Swift.V2TIMMessageSearchParam, succ: @escaping ImSDK_Plus_Swift.V2TIMSearchMessageListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func sendMessageReadReceipts(messageList: Swift.Array<ImSDK_Plus_Swift.V2TIMMessage>, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func getMessageReadReceipts(messageList: Swift.Array<ImSDK_Plus_Swift.V2TIMMessage>, succ: @escaping ImSDK_Plus_Swift.V2TIMMessageReadReceiptsSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func getGroupMessageReadMemberList(message: ImSDK_Plus_Swift.V2TIMMessage, filter: ImSDK_Plus_Swift.V2TIMGroupMessageReadMembersFilter, nextSeq: Swift.UInt, count: Swift.UInt, succ: @escaping ImSDK_Plus_Swift.V2TIMGroupMessageReadMemberListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func setMessageExtensions(message: ImSDK_Plus_Swift.V2TIMMessage, extensions: Swift.Array<ImSDK_Plus_Swift.V2TIMMessageExtension>, succ: ImSDK_Plus_Swift.V2TIMMessageExtensionsSetSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func getMessageExtensions(message: ImSDK_Plus_Swift.V2TIMMessage, succ: @escaping ImSDK_Plus_Swift.V2TIMMessageExtensionsGetSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func deleteMessageExtensions(message: ImSDK_Plus_Swift.V2TIMMessage, keys: Swift.Array<Swift.String>?, succ: ImSDK_Plus_Swift.V2TIMMessageExtensionsDeleteSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func addMessageReaction(message: ImSDK_Plus_Swift.V2TIMMessage, reactionID: Swift.String, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func removeMessageReaction(message: ImSDK_Plus_Swift.V2TIMMessage, reactionID: Swift.String, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func getMessageReactions(messageList: Swift.Array<ImSDK_Plus_Swift.V2TIMMessage>, maxUserCountPerReaction: Swift.UInt32, succ: ImSDK_Plus_Swift.V2TIMGetMessageReactionsSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func getAllUserListOfMessageReaction(message: ImSDK_Plus_Swift.V2TIMMessage, reactionID: Swift.String, nextSeq: Swift.UInt32, count: Swift.UInt32, succ: ImSDK_Plus_Swift.V2TIMGetMessageReactionUserListSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func translateText(sourceTextList: Swift.Array<Swift.String>, sourceLanguage: Swift.String, targetLanguage: Swift.String, completion: ImSDK_Plus_Swift.V2TIMTranslateTextCompletion?)
+  @available(*, deprecated, message: "Please call API cleanConversationUnreadMessageCount instead")
+  public func markC2CMessageAsRead(userID: Swift.String, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  @available(*, deprecated, message: "Please call API cleanConversationUnreadMessageCount instead")
+  public func markGroupMessageAsRead(groupID: Swift.String, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  @available(*, deprecated, message: "Please call API cleanConversationUnreadMessageCount instead")
+  public func markAllMessageAsRead(succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func pinGroupMessage(groupID: Swift.String, message: ImSDK_Plus_Swift.V2TIMMessage, isPinned: Swift.Bool, succ: @escaping ImSDK_Plus_Swift.V2TIMSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func getPinnedGroupMessageList(groupID: Swift.String, succ: @escaping ImSDK_Plus_Swift.V2TIMPinnedMessageListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+}
+public protocol V2TIMAdvancedMsgListener : AnyObject {
+  func onRecvNewMessage(msg: ImSDK_Plus_Swift.V2TIMMessage)
+  func onRecvMessageReadReceipts(receiptList: Swift.Array<ImSDK_Plus_Swift.V2TIMMessageReceipt>)
+  func onRecvC2CReadReceipt(receiptList: Swift.Array<ImSDK_Plus_Swift.V2TIMMessageReceipt>)
+  func onRecvMessageRevoked(msgID: Swift.String, operateUser: ImSDK_Plus_Swift.V2TIMUserInfo, reason: Swift.String?)
+  func onRecvMessageModified(msg: ImSDK_Plus_Swift.V2TIMMessage)
+  func onRecvMessageExtensionsChanged(msgID: Swift.String, extensions: Swift.Array<ImSDK_Plus_Swift.V2TIMMessageExtension>)
+  func onRecvMessageExtensionsDeleted(msgID: Swift.String, extensionKeys: Swift.Array<Swift.String>)
+  func onRecvMessageReactionsChanged(changeList: Swift.Array<ImSDK_Plus_Swift.V2TIMMessageReactionChangeInfo>)
+  func onGroupMessagePinned(groupID: Swift.String, message: ImSDK_Plus_Swift.V2TIMMessage, isPinned: Swift.Bool, opUser: ImSDK_Plus_Swift.V2TIMGroupMemberInfo)
+  @available(*, deprecated, message: "Use onRecvMessageRevoked(msgID:operateUser:reason:) instead")
+  func onRecvMessageRevoked(msgID: Swift.String)
+}
+public class V2TIMMessageExtension {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var extensionKey: Swift.String {
+    get
+    set(newValue)
+  }
+  public var extensionValue: Swift.String {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public class V2TIMMessageExtensionResult {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var resultCode: Swift.Int {
+    get
+  }
+  public var resultInfo: Swift.String {
+    get
+  }
+  public var ext: ImSDK_Plus_Swift.V2TIMMessageExtension? {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMMessageReaction {
+  public init()
+  public var reactionID: Swift.String {
+    get
+  }
+  public var totalUserCount: Swift.UInt32 {
+    get
+  }
+  public var partialUserList: Swift.Array<ImSDK_Plus_Swift.V2TIMUserInfo> {
+    get
+  }
+  public var reactedByMyself: Swift.Bool {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMMessageReactionResult {
+  public init()
+  public var resultCode: Swift.Int {
+    get
+  }
+  public var description: Swift.String {
+    get
+  }
+  public var msgID: Swift.String {
+    get
+  }
+  public var reactionList: Swift.Array<ImSDK_Plus_Swift.V2TIMMessageReaction> {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMMessageReactionChangeInfo {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var msgID: Swift.String {
+    get
+  }
+  public var reactionList: Swift.Array<ImSDK_Plus_Swift.V2TIMMessageReaction> {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMMessageReceipt {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var msgID: Swift.String? {
+    get
+  }
+  public var userID: Swift.String? {
+    get
+  }
+  public var isPeerRead: Swift.Bool {
+    get
+  }
+  public var timestamp: Darwin.time_t {
+    get
+  }
+  public var groupID: Swift.String? {
+    get
+  }
+  public var readCount: Swift.Int {
+    get
+  }
+  public var unreadCount: Swift.Int {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMMessage {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var msgID: Swift.String {
+    get
+  }
+  public var timestamp: Foundation.Date {
+    get
+  }
+  public var sender: Swift.String? {
+    get
+  }
+  public var nickName: Swift.String? {
+    get
+  }
+  public var friendRemark: Swift.String? {
+    get
+  }
+  public var nameCard: Swift.String? {
+    get
+  }
+  public var faceURL: Swift.String? {
+    get
+  }
+  public var groupID: Swift.String? {
+    get
+  }
+  public var userID: Swift.String? {
+    get
+  }
+  public var seq: Swift.UInt {
+    get
+  }
+  public var random: Swift.UInt {
+    get
+  }
+  public var status: ImSDK_Plus_Swift.V2TIMMessageStatus {
+    get
+  }
+  public var isSelf: Swift.Bool {
+    get
+  }
+  public var isRead: Swift.Bool {
+    get
+  }
+  public var isPeerRead: Swift.Bool {
+    get
+  }
+  public var needReadReceipt: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var supportMessageExtension: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var isBroadcastMessage: Swift.Bool {
+    get
+  }
+  public var priority: ImSDK_Plus_Swift.V2TIMMessagePriority {
+    get
+  }
+  public var groupAtUserList: Swift.Array<Swift.String>? {
+    get
+  }
+  public var elemType: ImSDK_Plus_Swift.V2TIMElemType {
+    get
+  }
+  public var textElem: ImSDK_Plus_Swift.V2TIMTextElem? {
+    get
+  }
+  public var customElem: ImSDK_Plus_Swift.V2TIMCustomElem? {
+    get
+  }
+  public var imageElem: ImSDK_Plus_Swift.V2TIMImageElem? {
+    get
+  }
+  public var soundElem: ImSDK_Plus_Swift.V2TIMSoundElem? {
+    get
+  }
+  public var videoElem: ImSDK_Plus_Swift.V2TIMVideoElem? {
+    get
+  }
+  public var fileElem: ImSDK_Plus_Swift.V2TIMFileElem? {
+    get
+  }
+  public var locationElem: ImSDK_Plus_Swift.V2TIMLocationElem? {
+    get
+  }
+  public var faceElem: ImSDK_Plus_Swift.V2TIMFaceElem? {
+    get
+  }
+  public var mergerElem: ImSDK_Plus_Swift.V2TIMMergerElem? {
+    get
+  }
+  public var groupTipsElem: ImSDK_Plus_Swift.V2TIMGroupTipsElem? {
+    get
+  }
+  public var localCustomData: Foundation.Data? {
+    get
+    set(newValue)
+  }
+  public var localCustomInt: Swift.Int {
+    get
+    set(newValue)
+  }
+  public var cloudCustomData: Foundation.Data? {
+    get
+    set(newValue)
+  }
+  public var isExcludedFromUnreadCount: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var isExcludedFromLastMessage: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var isExcludedFromContentModeration: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var customModerationConfigurationID: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var hasRiskContent: Swift.Bool {
+    get
+  }
+  public var disableCloudMessagePreHook: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var disableCloudMessagePostHook: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var offlinePushInfo: ImSDK_Plus_Swift.V2TIMOfflinePushInfo? {
+    get
+  }
+  public var revokerInfo: ImSDK_Plus_Swift.V2TIMUserFullInfo? {
+    get
+  }
+  public var revokeReason: Swift.String? {
+    get
+  }
+  public var pinnerInfo: ImSDK_Plus_Swift.V2TIMGroupMemberFullInfo? {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMElem {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public func getNextElem() -> ImSDK_Plus_Swift.V2TIMElem?
+  public func appendElem(element: ImSDK_Plus_Swift.V2TIMElem)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class V2TIMTextElem : ImSDK_Plus_Swift.V2TIMElem {
+  override public init()
+  public var text: Swift.String? {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class V2TIMCustomElem : ImSDK_Plus_Swift.V2TIMElem {
+  override public init()
+  public var data: Foundation.Data? {
+    get
+    set(newValue)
+  }
+  public var desc: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var ext: Swift.String? {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class V2TIMImageElem : ImSDK_Plus_Swift.V2TIMElem {
+  override public init()
+  public var path: Swift.String? {
+    get
+  }
+  public var imageList: Swift.Array<ImSDK_Plus_Swift.V2TIMImage> {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMImage {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var uuid: Swift.String? {
+    get
+  }
+  public var type: ImSDK_Plus_Swift.V2TIMImageType {
+    get
+  }
+  public var size: Swift.Int {
+    get
+  }
+  public var width: Swift.Int {
+    get
+  }
+  public var height: Swift.Int {
+    get
+  }
+  public var url: Swift.String? {
+    get
+  }
+  public func downloadImage(path: Swift.String, progress: ImSDK_Plus_Swift.V2TIMDownLoadProgress?, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class V2TIMSoundElem : ImSDK_Plus_Swift.V2TIMElem {
+  override public init()
+  public var path: Swift.String? {
+    get
+  }
+  public var uuid: Swift.String? {
+    get
+  }
+  public var dataSize: Swift.Int {
+    get
+  }
+  public var duration: Swift.Int {
+    get
+  }
+  public func getUrl(callback: @escaping (Swift.String?) -> (Swift.Void))
+  public func downloadSound(path: Swift.String, progress: ImSDK_Plus_Swift.V2TIMDownLoadProgress?, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func convertVoiceToText(language: Swift.String, completion: ImSDK_Plus_Swift.V2TIMConvertVoiceToTextCompletion?)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class V2TIMVideoElem : ImSDK_Plus_Swift.V2TIMElem {
+  override public init()
+  public var videoPath: Swift.String? {
+    get
+  }
+  public var snapshotPath: Swift.String? {
+    get
+  }
+  public var videoUUID: Swift.String? {
+    get
+  }
+  public var videoSize: Swift.Int {
+    get
+  }
+  public var videoType: Swift.String? {
+    get
+  }
+  public var duration: Swift.Int {
+    get
+  }
+  public var snapshotUUID: Swift.String? {
+    get
+  }
+  public var snapshotSize: Swift.Int {
+    get
+  }
+  public var snapshotWidth: Swift.Int {
+    get
+  }
+  public var snapshotHeight: Swift.Int {
+    get
+  }
+  public func getVideoUrl(callback: @escaping (Swift.String?) -> (Swift.Void))
+  public func getSnapshotUrl(callback: @escaping (Swift.String?) -> (Swift.Void))
+  public func downloadVideo(path: Swift.String, progress: ImSDK_Plus_Swift.V2TIMDownLoadProgress?, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func downloadSnapshot(path: Swift.String, progress: ImSDK_Plus_Swift.V2TIMDownLoadProgress?, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class V2TIMFileElem : ImSDK_Plus_Swift.V2TIMElem {
+  override public init()
+  public var path: Swift.String? {
+    get
+  }
+  public var uuid: Swift.String? {
+    get
+  }
+  public var filename: Swift.String? {
+    get
+  }
+  public var fileSize: Swift.Int {
+    get
+  }
+  public func getUrl(callback: @escaping (Swift.String?) -> (Swift.Void))
+  public func downloadFile(path: Swift.String, progress: ImSDK_Plus_Swift.V2TIMDownLoadProgress?, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class V2TIMLocationElem : ImSDK_Plus_Swift.V2TIMElem {
+  override public init()
+  public var desc: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var longitude: Swift.Double {
+    get
+    set(newValue)
+  }
+  public var latitude: Swift.Double {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class V2TIMFaceElem : ImSDK_Plus_Swift.V2TIMElem {
+  override public init()
+  public var index: Swift.Int {
+    get
+    set(newValue)
+  }
+  public var data: Foundation.Data? {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class V2TIMMergerElem : ImSDK_Plus_Swift.V2TIMElem {
+  override public init()
+  public var layersOverLimit: Swift.Bool {
+    get
+  }
+  public var title: Swift.String? {
+    get
+  }
+  public var abstractList: Swift.Array<Swift.String> {
+    get
+  }
+  public func downloadMergerMessage(succ: @escaping ImSDK_Plus_Swift.V2TIMMessageListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class V2TIMGroupTipsElem : ImSDK_Plus_Swift.V2TIMElem {
+  override public init()
+  public var groupID: Swift.String? {
+    get
+  }
+  public var type: ImSDK_Plus_Swift.V2TIMGroupTipsType {
+    get
+  }
+  public var opMember: ImSDK_Plus_Swift.V2TIMGroupMemberInfo? {
+    get
+  }
+  public var memberList: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupMemberInfo>? {
+    get
+  }
+  public var groupChangeInfoList: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupChangeInfo>? {
+    get
+  }
+  public var memberChangeInfoList: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupMemberChangeInfo>? {
+    get
+  }
+  public var memberCount: Swift.Int {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMGroupChangeInfo {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var type: ImSDK_Plus_Swift.V2TIMGroupInfoChangeType {
+    get
+  }
+  public var value: Swift.String? {
+    get
+  }
+  public var key: Swift.String? {
+    get
+  }
+  public var boolValue: Swift.Bool {
+    get
+  }
+  public var intValue: Swift.Int {
+    get
+  }
+  public var uint64Value: Swift.UInt64 {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMGroupMemberChangeInfo {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var userID: Swift.String? {
+    get
+  }
+  public var muteTime: Swift.Int {
+    get
+  }
+  @objc deinit
+}
+public let kIOSOfflinePushNoSound: Swift.String
+public let kIOSOfflinePushDefaultSound: Swift.String
+public class V2TIMOfflinePushInfo {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var title: Swift.String? {
+    get
+    set(newTitle)
+  }
+  public var desc: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var ext: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var disablePush: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var iOSPushType: ImSDK_Plus_Swift.V2TIMIOSOfflinePushType {
+    get
+    set(newValue)
+  }
+  public var ignoreIOSBadge: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var iOSSound: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var iOSInterruptionLevel: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var enableIOSBackgroundNotification: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var AndroidSound: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var AndroidOPPOChannelID: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var AndroidFCMChannelID: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var AndroidXiaoMiChannelID: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var AndroidVIVOClassification: Swift.Int {
+    get
+    set(newValue)
+  }
+  public var AndroidVIVOCategory: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var AndroidHuaWeiCategory: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var AndroidOPPOCategory: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var AndroidOPPONotifyLevel: Swift.Int {
+    get
+    set(newValue)
+  }
+  public var AndroidHonorImportance: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var AndroidHuaWeiImage: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var AndroidHonorImage: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var AndroidFCMImage: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var iOSImage: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var HarmonyImage: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var HarmonyCategory: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var ignoreHarmonyBadge: Swift.Bool {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public class V2TIMReceiveMessageOptInfo {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var userID: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var receiveOpt: ImSDK_Plus_Swift.V2TIMReceiveMessageOpt {
+    get
+  }
+  public var startHour: Swift.Int {
+    get
+  }
+  public var startMinute: Swift.Int {
+    get
+  }
+  public var startSecond: Swift.Int {
+    get
+  }
+  public var startTimeStamp: Swift.Int {
+    get
+  }
+  public var duration: Swift.Int {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMMessageSearchParam {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var keywordList: Swift.Array<Swift.String>? {
+    get
+    set(newValue)
+  }
+  public var keywordListMatchType: ImSDK_Plus_Swift.V2TIMKeywordListMatchType {
+    get
+    set(newValue)
+  }
+  public var senderUserIDList: Swift.Array<Swift.String>? {
+    get
+    set(newValue)
+  }
+  public var messageTypeList: Swift.Array<ImSDK_Plus_Swift.V2TIMElemType>? {
+    get
+    set(newValue)
+  }
+  public var conversationID: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var searchTimePosition: Swift.UInt {
+    get
+    set(newValue)
+  }
+  public var searchTimePeriod: Swift.UInt {
+    get
+    set(newValue)
+  }
+  public var pageIndex: Swift.UInt {
+    get
+    set(newValue)
+  }
+  public var pageSize: Swift.UInt {
+    get
+    set(newValue)
+  }
+  public var searchCount: Swift.UInt {
+    get
+    set(newValue)
+  }
+  public var searchCursor: Swift.String? {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public class V2TIMMessageSearchResultItem {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var conversationID: Swift.String {
+    get
+    set(newValue)
+  }
+  public var messageCount: Swift.UInt {
+    get
+    set(newValue)
+  }
+  public var messageList: Swift.Array<ImSDK_Plus_Swift.V2TIMMessage> {
+    get
+    set(newVaue)
+  }
+  @objc deinit
+}
+public class V2TIMMessageSearchResult {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var totalCount: Swift.UInt {
+    get
+    set(newValue)
+  }
+  public var messageSearchResultItems: Swift.Array<ImSDK_Plus_Swift.V2TIMMessageSearchResultItem> {
+    get
+    set(newValue)
+  }
+  public var searchCursor: Swift.String? {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public class V2TIMMessageListGetOption {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var getType: ImSDK_Plus_Swift.V2TIMMessageGetType {
+    get
+    set(newValue)
+  }
+  public var userID: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var groupID: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var count: Swift.UInt {
+    get
+    set(newValue)
+  }
+  public var messageTypeList: Swift.Array<ImSDK_Plus_Swift.V2TIMElemType>? {
+    get
+    set(newValue)
+  }
+  public var lastMsg: ImSDK_Plus_Swift.V2TIMMessage? {
+    get
+    set(newValue)
+  }
+  public var lastMsgSeq: Swift.UInt {
+    get
+    set(newValue)
+  }
+  public var getTimeBegin: Swift.UInt {
+    get
+    set(newValue)
+  }
+  public var getTimePeriod: Swift.UInt {
+    get
+    set(newValue)
+  }
+  public var messageSeqList: Swift.Array<Swift.UInt>? {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public typealias V2TIMSignalingInfoSucc = (_ signalInfo: ImSDK_Plus_Swift.V2TIMSignalingInfo) -> (Swift.Void)
+public enum V2TIMSignalingActionType : Swift.Int {
+  case V2TIMSignalingActionType_Invite
+  case V2TIMSignalingActionType_Cancel_Invite
+  case V2TIMSignalingActionType_Accept_Invite
+  case V2TIMSignalingActionType_Reject_Invite
+  case V2TIMSignalingActionType_Invite_Timeout
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func addSignalingListener(listener: ImSDK_Plus_Swift.V2TIMSignalingListener)
+  public func removeSignalingListener(listener: ImSDK_Plus_Swift.V2TIMSignalingListener)
+  public func invite(invitee: Swift.String, data: Swift.String?, onlineUserOnly: Swift.Bool, offlinePushInfo: ImSDK_Plus_Swift.V2TIMOfflinePushInfo?, timeout: Swift.Int, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?) -> Swift.String?
+  public func inviteInGroup(groupID: Swift.String, inviteeList: Swift.Array<Swift.String>, data: Swift.String?, onlineUserOnly: Swift.Bool, timeout: Swift.Int, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?) -> Swift.String?
+  public func cancel(inviteID: Swift.String, data: Swift.String?, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func accept(inviteID: Swift.String, data: Swift.String?, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func reject(inviteID: Swift.String, data: Swift.String?, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func getSignallingInfo(msg: ImSDK_Plus_Swift.V2TIMMessage) -> ImSDK_Plus_Swift.V2TIMSignalingInfo?
+  public func addInvitedSignaling(signalingInfo: ImSDK_Plus_Swift.V2TIMSignalingInfo, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func modifyInvitation(inviteID: Swift.String, data: Swift.String, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+}
+public protocol V2TIMSignalingListener : AnyObject {
+  func onReceiveNewInvitation(inviteID: Swift.String, inviter: Swift.String, groupID: Swift.String?, inviteeList: Swift.Array<Swift.String>, data: Swift.String?)
+  func onInviteeAccepted(inviteID: Swift.String, invitee: Swift.String, data: Swift.String?)
+  func onInviteeRejected(inviteID: Swift.String, invitee: Swift.String, data: Swift.String?)
+  func onInvitationCancelled(inviteID: Swift.String, inviter: Swift.String, data: Swift.String?)
+  func onInvitationTimeout(inviteID: Swift.String, inviteeList: Swift.Array<Swift.String>)
+  func onInvitationModified(inviteID: Swift.String, data: Swift.String?)
+}
+public class V2TIMSignalingInfo {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var inviteID: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var groupID: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var inviter: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var inviteeList: Swift.Array<Swift.String> {
+    get
+    set(newValue)
+  }
+  public var data: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var timeout: Swift.UInt {
+    get
+    set(newValue)
+  }
+  public var actionType: ImSDK_Plus_Swift.V2TIMSignalingActionType {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func setVOIP(config: ImSDK_Plus_Swift.V2TIMVOIPConfig, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+}
+public class V2TIMVOIPConfig {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var token: Foundation.Data? {
+    get
+    set(newValue)
+  }
+  public var certificateID: Swift.Int {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public typealias V2TIMSucc = () -> (Swift.Void)
+public typealias V2TIMFail = (_ code: Swift.Int, _ desc: Swift.String) -> (Swift.Void)
+public typealias V2TIMCreateGroupSucc = (_ groupID: Swift.String) -> (Swift.Void)
+public typealias V2TIMUserFullInfoListSucc = (_ infoList: Swift.Array<ImSDK_Plus_Swift.V2TIMUserFullInfo>) -> (Swift.Void)
+public typealias V2TIMUserSearchResultSucc = (_ searchResult: ImSDK_Plus_Swift.V2TIMUserSearchResult) -> (Swift.Void)
+public typealias V2TIMCallExperimentalAPISucc = (_ result: Swift.AnyObject?) -> (Swift.Void)
+public typealias V2TIMUserStatusListSucc = (_ result: Swift.Array<ImSDK_Plus_Swift.V2TIMUserStatus>) -> (Swift.Void)
+public enum V2TIMLoginStatus : Swift.Int {
+  case V2TIM_STATUS_LOGINED
+  case V2TIM_STATUS_LOGINING
+  case V2TIM_STATUS_LOGOUT
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMLogLevel : Swift.Int {
+  case V2TIM_LOG_NONE
+  case V2TIM_LOG_DEBUG
+  case V2TIM_LOG_INFO
+  case V2TIM_LOG_WARN
+  case V2TIM_LOG_ERROR
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMMessagePriority : Swift.Int {
+  case V2TIM_PRIORITY_DEFAULT
+  case V2TIM_PRIORITY_HIGH
+  case V2TIM_PRIORITY_NORMAL
+  case V2TIM_PRIORITY_LOW
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMGender : Swift.Int {
+  case V2TIM_GENDER_UNKNOWN
+  case V2TIM_GENDER_MALE
+  case V2TIM_GENDER_FEMALE
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMFriendAllowType : Swift.Int {
+  case V2TIM_FRIEND_ALLOW_ANY
+  case V2TIM_FRIEND_NEED_CONFIRM
+  case V2TIM_FRIEND_DENY_ANY
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMGroupMemberRole : Swift.Int {
+  case V2TIM_GROUP_MEMBER_UNDEFINED
+  case V2TIM_GROUP_MEMBER_ROLE_MEMBER
+  case V2TIM_GROUP_MEMBER_ROLE_ADMIN
+  case V2TIM_GROUP_MEMBER_ROLE_SUPER
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum V2TIMUserStatusType : Swift.Int {
+  case V2TIM_USER_STATUS_UNKNOWN
+  case V2TIM_USER_STATUS_ONLINE
+  case V2TIM_USER_STATUS_OFFLINE
+  case V2TIM_USER_STATUS_UNLOGINED
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public typealias V2TIMLogListener = (ImSDK_Plus_Swift.V2TIMLogLevel, Swift.String) -> (Swift.Void)
+@objc @_inheritsConvenienceInitializers public class V2TIMManager : ObjectiveC.NSObject {
+  public static let shared: ImSDK_Plus_Swift.V2TIMManager
+  public func initSDK(sdkAppID: Swift.Int32, config: ImSDK_Plus_Swift.V2TIMSDKConfig) -> Swift.Bool
+  public func addIMSDKListener(listener: ImSDK_Plus_Swift.V2TIMSDKListener)
+  public func removeIMSDKListener(listener: ImSDK_Plus_Swift.V2TIMSDKListener)
+  public func unInitSDK()
+  public func getVersion() -> Swift.String
+  public func getServerTime() -> Swift.Int
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func login(userID: Swift.String, userSig: Swift.String, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func logout(succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func getLoginUser() -> Swift.String?
+  public func getLoginStatus() -> ImSDK_Plus_Swift.V2TIMLoginStatus
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func addSimpleMsgListener(listener: ImSDK_Plus_Swift.V2TIMSimpleMsgListener)
+  public func removeSimpleMsgListener(listener: ImSDK_Plus_Swift.V2TIMSimpleMsgListener)
+  public func sendC2CTextMessage(text: Swift.String, to userID: Swift.String, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?) -> Swift.String?
+  public func sendC2CCustomMessage(customData: Foundation.Data, to userID: Swift.String, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?) -> Swift.String?
+  public func sendGroupTextMessage(text: Swift.String, to groupID: Swift.String, priority: ImSDK_Plus_Swift.V2TIMMessagePriority, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?) -> Swift.String?
+  public func sendGroupCustomMessage(customData: Foundation.Data, to groupID: Swift.String, priority: ImSDK_Plus_Swift.V2TIMMessagePriority, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?) -> Swift.String?
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func addGroupListener(listener: ImSDK_Plus_Swift.V2TIMGroupListener)
+  public func removeGroupListener(listener: ImSDK_Plus_Swift.V2TIMGroupListener)
+  public func createGroup(groupType: Swift.String, groupID: Swift.String?, groupName: Swift.String, succ: ImSDK_Plus_Swift.V2TIMCreateGroupSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func joinGroup(groupID: Swift.String, msg: Swift.String?, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func quitGroup(groupID: Swift.String, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func dismissGroup(groupID: Swift.String, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func getUsersInfo(userIDList: Swift.Array<Swift.String>, succ: @escaping ImSDK_Plus_Swift.V2TIMUserFullInfoListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func setSelfInfo(info: ImSDK_Plus_Swift.V2TIMUserFullInfo, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func subscribeUserInfo(userIDList: Swift.Array<Swift.String>, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func unsubscribeUserInfo(userIDList: Swift.Array<Swift.String>, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func searchUsers(param: ImSDK_Plus_Swift.V2TIMUserSearchParam, succ: @escaping ImSDK_Plus_Swift.V2TIMUserSearchResultSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func getUserStatus(userIDList: Swift.Array<Swift.String>, succ: @escaping ImSDK_Plus_Swift.V2TIMUserStatusListSucc, fail: @escaping ImSDK_Plus_Swift.V2TIMFail)
+  public func setSelfStatus(status: ImSDK_Plus_Swift.V2TIMUserStatus, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func subscribeUserStatus(userIDList: Swift.Array<Swift.String>, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+  public func unsubscribeUserStatus(userIDList: Swift.Array<Swift.String>, succ: ImSDK_Plus_Swift.V2TIMSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func callExperimentalAPI(api: Swift.String, param: Swift.AnyObject?, succ: ImSDK_Plus_Swift.V2TIMCallExperimentalAPISucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+}
+public protocol V2TIMSDKListener : AnyObject {
+  func onConnecting()
+  func onConnectFailed(code: Swift.Int32, err: Swift.String)
+  func onKickedOffline()
+  func onUserSigExpired()
+  func onSelfInfoUpdated(info: ImSDK_Plus_Swift.V2TIMUserFullInfo)
+  func onUserStatusChanged(userStatusList: Swift.Array<ImSDK_Plus_Swift.V2TIMUserStatus>)
+  func onConnectSuccess()
+  func onUserInfoChanged(userInfoList: Swift.Array<ImSDK_Plus_Swift.V2TIMUserFullInfo>)
+  func onAllReceiveMessageOptChanged(receiveMessageOptInfo: ImSDK_Plus_Swift.V2TIMReceiveMessageOptInfo)
+  func onExperimentalNotify(key: Swift.String, param: Swift.AnyObject)
+}
+public protocol V2TIMSimpleMsgListener : AnyObject {
+  func onRecvC2CTextMessage(msgID: Swift.String, sender: ImSDK_Plus_Swift.V2TIMUserInfo, text: Swift.String?)
+  func onRecvC2CCustomMessage(msgID: Swift.String, sender: ImSDK_Plus_Swift.V2TIMUserInfo, customData: Foundation.Data?)
+  func onRecvGroupTextMessage(msgID: Swift.String, groupID: Swift.String, sender: ImSDK_Plus_Swift.V2TIMGroupMemberInfo, text: Swift.String?)
+  func onRecvGroupCustomMessage(msgID: Swift.String, groupID: Swift.String, sender: ImSDK_Plus_Swift.V2TIMGroupMemberInfo, customData: Foundation.Data?)
+}
+public protocol V2TIMGroupListener : AnyObject {
+  func onMemberEnter(groupID: Swift.String, memberList: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupMemberInfo>)
+  func onMemberLeave(groupID: Swift.String, member: ImSDK_Plus_Swift.V2TIMGroupMemberInfo)
+  func onMemberInvited(groupID: Swift.String, opUser: ImSDK_Plus_Swift.V2TIMGroupMemberInfo, memberList: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupMemberInfo>)
+  func onMemberKicked(groupID: Swift.String, opUser: ImSDK_Plus_Swift.V2TIMGroupMemberInfo, memberList: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupMemberInfo>)
+  func onMemberInfoChanged(groupID: Swift.String, changeInfoList: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupMemberChangeInfo>)
+  func onAllGroupMembersMuted(groupID: Swift.String, isMute: Swift.Bool)
+  func onMemberMarkChanged(groupID: Swift.String, memberIDList: Swift.Array<Swift.String>, markType: Swift.Int, enableMark: Swift.Bool)
+  func onGroupCreated(groupID: Swift.String)
+  func onGroupDismissed(groupID: Swift.String, opUser: ImSDK_Plus_Swift.V2TIMGroupMemberInfo)
+  func onGroupRecycled(groupID: Swift.String, opUser: ImSDK_Plus_Swift.V2TIMGroupMemberInfo)
+  func onGroupInfoChanged(groupID: Swift.String, changeInfoList: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupChangeInfo>)
+  func onGroupAttributeChanged(groupID: Swift.String, attributes: Swift.Dictionary<Swift.String, Swift.String>)
+  func onGroupCounterChanged(groupID: Swift.String, key: Swift.String, newValue: Swift.Int)
+  func onReceiveJoinApplication(groupID: Swift.String, member: ImSDK_Plus_Swift.V2TIMGroupMemberInfo, opReason: Swift.String?)
+  func onApplicationProcessed(groupID: Swift.String, opUser: ImSDK_Plus_Swift.V2TIMGroupMemberInfo, isAgreeJoin: Swift.Bool, opReason: Swift.String?)
+  func onGrantAdministrator(groupID: Swift.String, opUser: ImSDK_Plus_Swift.V2TIMGroupMemberInfo, memberList: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupMemberInfo>)
+  func onRevokeAdministrator(groupID: Swift.String, opUser: ImSDK_Plus_Swift.V2TIMGroupMemberInfo, memberList: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupMemberInfo>)
+  func onQuitFromGroup(groupID: Swift.String)
+  func onReceiveRESTCustomData(groupID: Swift.String, data: Foundation.Data?)
+  func onTopicCreated(groupID: Swift.String, topicID: Swift.String)
+  func onTopicDeleted(groupID: Swift.String, topicIDList: Swift.Array<Swift.String>)
+  func onTopicChanged(groupID: Swift.String, topicInfo: ImSDK_Plus_Swift.V2TIMTopicInfo)
+}
+public class V2TIMUserInfo {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var userID: Swift.String {
+    get
+  }
+  public var nickName: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var faceURL: Swift.String? {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class V2TIMUserFullInfo : ImSDK_Plus_Swift.V2TIMUserInfo {
+  override public init()
+  override public var description: Swift.String {
+    get
+  }
+  public var selfSignature: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var gender: ImSDK_Plus_Swift.V2TIMGender {
+    get
+    set(newValue)
+  }
+  public var role: Swift.UInt {
+    get
+    set(newValue)
+  }
+  public var level: Swift.UInt {
+    get
+    set(newValue)
+  }
+  public var birthday: Swift.UInt {
+    get
+    set(newValue)
+  }
+  public var allowType: ImSDK_Plus_Swift.V2TIMFriendAllowType {
+    get
+    set(newValue)
+  }
+  public var customInfo: Swift.Dictionary<Swift.String, Foundation.Data>? {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public class V2TIMUserStatus {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var userID: Swift.String {
+    get
+  }
+  public var statusType: ImSDK_Plus_Swift.V2TIMUserStatusType {
+    get
+  }
+  public var customStatus: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var onlineDevices: [Swift.String] {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMUserSearchParam {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var keywordList: Swift.Array<Swift.String>? {
+    get
+    set(newValue)
+  }
+  public var keywordListMatchType: ImSDK_Plus_Swift.V2TIMKeywordListMatchType {
+    get
+    set(newValue)
+  }
+  public var gender: ImSDK_Plus_Swift.V2TIMGender {
+    get
+    set(newValue)
+  }
+  public var minBirthday: Swift.UInt32 {
+    get
+    set(newValue)
+  }
+  public var maxBirthday: Swift.UInt32 {
+    get
+    set(newValue)
+  }
+  public var searchCount: Swift.UInt {
+    get
+    set(newValue)
+  }
+  public var searchCursor: Swift.String {
+    get
+    set(newValue)
+  }
+  @objc deinit
+}
+public class V2TIMUserSearchResult {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var isFinished: Swift.Bool {
+    get
+    set(newValue)
+  }
+  public var totalCount: Swift.UInt {
+    get
+    set(newValue)
+  }
+  public var searchCursor: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var userList: [ImSDK_Plus_Swift.V2TIMUserFullInfo] {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMGroupMemberInfo {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var userID: Swift.String {
+    get
+    set(newValue)
+  }
+  public var nickName: Swift.String? {
+    get
+  }
+  public var friendRemark: Swift.String? {
+    get
+  }
+  public var nameCard: Swift.String? {
+    get
+    set(newValue)
+  }
+  public var faceURL: Swift.String? {
+    get
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class V2TIMGroupMemberFullInfo : ImSDK_Plus_Swift.V2TIMGroupMemberInfo {
+  override public init()
+  override public var description: Swift.String {
+    get
+  }
+  public var customInfo: Swift.Dictionary<Swift.String, Foundation.Data>? {
+    get
+    set(newValue)
+  }
+  public var role: Swift.UInt {
+    get
+  }
+  public var muteUntil: Swift.UInt {
+    get
+  }
+  public var joinTime: Foundation.TimeInterval {
+    get
+  }
+  public var isOnline: Swift.Bool {
+    get
+  }
+  public var onlineDevices: [Swift.String] {
+    get
+  }
+  @objc deinit
+}
+public class V2TIMSDKConfig {
+  public init()
+  public var description: Swift.String {
+    get
+  }
+  public var logLevel: ImSDK_Plus_Swift.V2TIMLogLevel {
+    get
+    set(newValue)
+  }
+  public var logListener: ImSDK_Plus_Swift.V2TIMLogListener? {
+    get
+    set
+  }
+  @objc deinit
+}
+extension ImSDK_Plus_Swift.V2TIMCommunityListener {
+  public func onCreateTopic(groupID: Swift.String, topicID: Swift.String)
+  public func onDeleteTopic(groupID: Swift.String, topicIDList: Swift.Array<Swift.String>)
+  public func onChangeTopicInfo(groupID: Swift.String, topicInfo: ImSDK_Plus_Swift.V2TIMTopicInfo)
+  public func onReceiveTopicRESTCustomData(topicID: Swift.String, data: Foundation.Data?)
+  public func onCreatePermissionGroup(groupID: Swift.String, permissionGroupInfo: ImSDK_Plus_Swift.V2TIMPermissionGroupInfo)
+  public func onDeletePermissionGroup(groupID: Swift.String, permissionGroupIDList: Swift.Array<Swift.String>)
+  public func onChangePermissionGroupInfo(groupID: Swift.String, permissionGroupInfo: ImSDK_Plus_Swift.V2TIMPermissionGroupInfo)
+  public func onAddMembersToPermissionGroup(groupID: Swift.String, permissionGroupID: Swift.String, memberIDList: Swift.Array<Swift.String>)
+  public func onRemoveMembersFromPermissionGroup(groupID: Swift.String, permissionGroupID: Swift.String, memberIDList: Swift.Array<Swift.String>)
+  public func onAddTopicPermission(groupID: Swift.String, permissionGroupID: Swift.String, topicPermissionMap: Swift.Dictionary<Swift.String, Foundation.NSNumber>)
+  public func onDeleteTopicPermission(groupID: Swift.String, permissionGroupID: Swift.String, topicIDList: Swift.Array<Swift.String>)
+  public func onModifyTopicPermission(groupID: Swift.String, permissionGroupID: Swift.String, topicPermissionMap: Swift.Dictionary<Swift.String, Foundation.NSNumber>)
+}
+extension ImSDK_Plus_Swift.V2TIMConversationListener {
+  public func onSyncServerStart()
+  public func onSyncServerFinish()
+  public func onSyncServerFailed()
+  public func onNewConversation(conversationList: Swift.Array<ImSDK_Plus_Swift.V2TIMConversation>)
+  public func onConversationChanged(conversationList: Swift.Array<ImSDK_Plus_Swift.V2TIMConversation>)
+  public func onConversationDeleted(conversationIDList: Swift.Array<Swift.String>)
+  public func onTotalUnreadMessageCountChanged(totalUnreadCount: Swift.UInt)
+  public func onUnreadMessageCountChangedByFilter(filter: ImSDK_Plus_Swift.V2TIMConversationListFilter, totalUnreadCount: Swift.UInt)
+  public func onConversationGroupCreated(groupName: Swift.String, conversationList: Swift.Array<ImSDK_Plus_Swift.V2TIMConversation>)
+  public func onConversationGroupDeleted(groupName: Swift.String)
+  public func onConversationGroupNameChanged(oldName: Swift.String, newName: Swift.String)
+  public func onConversationsAddedToGroup(groupName: Swift.String, conversationList: Swift.Array<ImSDK_Plus_Swift.V2TIMConversation>)
+  public func onConversationsDeletedFromGroup(groupName: Swift.String, conversationList: Swift.Array<ImSDK_Plus_Swift.V2TIMConversation>)
+  public func onConversationsDeletedFromGroup(groupName: Swift.String, conversationList: Swift.Array<ImSDK_Plus_Swift.V2TIMConversation>, reason: Swift.UInt32)
+}
+extension ImSDK_Plus_Swift.V2TIMFriendshipListener {
+  public func onFriendApplicationListAdded(applicationList: Swift.Array<ImSDK_Plus_Swift.V2TIMFriendApplication>)
+  public func onFriendApplicationListDeleted(userIDList: Swift.Array<Swift.String>)
+  public func onFriendApplicationListRead()
+  public func onFriendListAdded(infoList: Swift.Array<ImSDK_Plus_Swift.V2TIMFriendInfo>)
+  public func onFriendListDeleted(userIDList: Swift.Array<Swift.String>)
+  public func onBlackListAdded(infoList: Swift.Array<ImSDK_Plus_Swift.V2TIMFriendInfo>)
+  public func onBlackListDeleted(userIDList: Swift.Array<Swift.String>)
+  public func onFriendProfileChanged(infoList: Swift.Array<ImSDK_Plus_Swift.V2TIMFriendInfo>)
+  public func onFriendGroupCreated(groupName: Swift.String, friendInfoList: Swift.Array<ImSDK_Plus_Swift.V2TIMFriendInfo>)
+  public func onFriendGroupDeleted(groupNameList: Swift.Array<Swift.String>)
+  public func onFriendGroupNameChanged(oldGroupName: Swift.String, newGroupName: Swift.String)
+  public func onFriendsAddedToGroup(groupName: Swift.String, friendInfoList: Swift.Array<ImSDK_Plus_Swift.V2TIMFriendInfo>)
+  public func onFriendsDeletedFromGroup(groupName: Swift.String, friendIDList: Swift.Array<Swift.String>)
+  public func onOfficialAccountSubscribed(officialAccountInfo: ImSDK_Plus_Swift.V2TIMOfficialAccountInfo)
+  public func onOfficialAccountUnsubscribed(officialAccountID: Swift.String)
+  public func onOfficialAccountDeleted(officialAccountID: Swift.String)
+  public func onOfficialAccountInfoChanged(officialAccountInfo: ImSDK_Plus_Swift.V2TIMOfficialAccountInfo)
+  public func onMyFollowingListChanged(userInfoList: Swift.Array<ImSDK_Plus_Swift.V2TIMUserFullInfo>, isAdd: Swift.Bool)
+  public func onMyFollowersListChanged(userInfoList: Swift.Array<ImSDK_Plus_Swift.V2TIMUserFullInfo>, isAdd: Swift.Bool)
+  public func onMutualFollowersListChanged(userInfoList: Swift.Array<ImSDK_Plus_Swift.V2TIMUserFullInfo>, isAdd: Swift.Bool)
+}
+extension ImSDK_Plus_Swift.V2TIMSDKListener {
+  public func onConnecting()
+  public func onConnectSuccess()
+  public func onConnectFailed(code: Swift.Int32, err: Swift.String)
+  public func onKickedOffline()
+  public func onUserSigExpired()
+  public func onSelfInfoUpdated(info: ImSDK_Plus_Swift.V2TIMUserFullInfo)
+  public func onUserStatusChanged(userStatusList: Swift.Array<ImSDK_Plus_Swift.V2TIMUserStatus>)
+  public func onUserInfoChanged(userInfoList: Swift.Array<ImSDK_Plus_Swift.V2TIMUserFullInfo>)
+  public func onAllReceiveMessageOptChanged(receiveMessageOptInfo: ImSDK_Plus_Swift.V2TIMReceiveMessageOptInfo)
+  public func onExperimentalNotify(key: Swift.String, param: Swift.AnyObject)
+}
+extension ImSDK_Plus_Swift.V2TIMSimpleMsgListener {
+  public func onRecvC2CTextMessage(msgID: Swift.String, sender: ImSDK_Plus_Swift.V2TIMUserInfo, text: Swift.String?)
+  public func onRecvC2CCustomMessage(msgID: Swift.String, sender: ImSDK_Plus_Swift.V2TIMUserInfo, customData: Foundation.Data?)
+  public func onRecvGroupTextMessage(msgID: Swift.String, groupID: Swift.String, sender: ImSDK_Plus_Swift.V2TIMGroupMemberInfo, text: Swift.String?)
+  public func onRecvGroupCustomMessage(msgID: Swift.String, groupID: Swift.String, sender: ImSDK_Plus_Swift.V2TIMGroupMemberInfo, customData: Foundation.Data?)
+}
+extension ImSDK_Plus_Swift.V2TIMGroupListener {
+  public func onMemberEnter(groupID: Swift.String, memberList: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupMemberInfo>)
+  public func onMemberLeave(groupID: Swift.String, member: ImSDK_Plus_Swift.V2TIMGroupMemberInfo)
+  public func onMemberInvited(groupID: Swift.String, opUser: ImSDK_Plus_Swift.V2TIMGroupMemberInfo, memberList: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupMemberInfo>)
+  public func onMemberKicked(groupID: Swift.String, opUser: ImSDK_Plus_Swift.V2TIMGroupMemberInfo, memberList: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupMemberInfo>)
+  public func onMemberInfoChanged(groupID: Swift.String, changeInfoList: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupMemberChangeInfo>)
+  public func onAllGroupMembersMuted(groupID: Swift.String, isMute: Swift.Bool)
+  public func onMemberMarkChanged(groupID: Swift.String, memberIDList: Swift.Array<Swift.String>, markType: Swift.Int, enableMark: Swift.Bool)
+  public func onGroupCreated(groupID: Swift.String)
+  public func onGroupDismissed(groupID: Swift.String, opUser: ImSDK_Plus_Swift.V2TIMGroupMemberInfo)
+  public func onGroupRecycled(groupID: Swift.String, opUser: ImSDK_Plus_Swift.V2TIMGroupMemberInfo)
+  public func onGroupInfoChanged(groupID: Swift.String, changeInfoList: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupChangeInfo>)
+  public func onGroupAttributeChanged(groupID: Swift.String, attributes: Swift.Dictionary<Swift.String, Swift.String>)
+  public func onGroupCounterChanged(groupID: Swift.String, key: Swift.String, newValue: Swift.Int)
+  public func onReceiveJoinApplication(groupID: Swift.String, member: ImSDK_Plus_Swift.V2TIMGroupMemberInfo, opReason: Swift.String?)
+  public func onApplicationProcessed(groupID: Swift.String, opUser: ImSDK_Plus_Swift.V2TIMGroupMemberInfo, isAgreeJoin: Swift.Bool, opReason: Swift.String?)
+  public func onGrantAdministrator(groupID: Swift.String, opUser: ImSDK_Plus_Swift.V2TIMGroupMemberInfo, memberList: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupMemberInfo>)
+  public func onRevokeAdministrator(groupID: Swift.String, opUser: ImSDK_Plus_Swift.V2TIMGroupMemberInfo, memberList: Swift.Array<ImSDK_Plus_Swift.V2TIMGroupMemberInfo>)
+  public func onQuitFromGroup(groupID: Swift.String)
+  public func onReceiveRESTCustomData(groupID: Swift.String, data: Foundation.Data?)
+  public func onTopicCreated(groupID: Swift.String, topicID: Swift.String)
+  public func onTopicDeleted(groupID: Swift.String, topicIDList: Swift.Array<Swift.String>)
+  public func onTopicChanged(groupID: Swift.String, topicInfo: ImSDK_Plus_Swift.V2TIMTopicInfo)
+}
+extension ImSDK_Plus_Swift.V2TIMManager {
+  public func searchUsersInternal(param: ImSDK_Plus_Swift.V2TIMUserSearchParam, succ: ImSDK_Plus_Swift.V2TIMUserSearchResultSucc?, fail: ImSDK_Plus_Swift.V2TIMFail?)
+}
+extension ImSDK_Plus_Swift.V2TIMAdvancedMsgListener {
+  public func onRecvNewMessage(msg: ImSDK_Plus_Swift.V2TIMMessage)
+  public func onRecvMessageReadReceipts(receiptList: Swift.Array<ImSDK_Plus_Swift.V2TIMMessageReceipt>)
+  public func onRecvC2CReadReceipt(receiptList: Swift.Array<ImSDK_Plus_Swift.V2TIMMessageReceipt>)
+  public func onRecvMessageRevoked(msgID: Swift.String, operateUser: ImSDK_Plus_Swift.V2TIMUserInfo, reason: Swift.String?)
+  public func onRecvMessageModified(msg: ImSDK_Plus_Swift.V2TIMMessage)
+  public func onRecvMessageExtensionsChanged(msgID: Swift.String, extensions: Swift.Array<ImSDK_Plus_Swift.V2TIMMessageExtension>)
+  public func onRecvMessageExtensionsDeleted(msgID: Swift.String, extensionKeys: Swift.Array<Swift.String>)
+  public func onRecvMessageReactionsChanged(changeList: Swift.Array<ImSDK_Plus_Swift.V2TIMMessageReactionChangeInfo>)
+  public func onGroupMessagePinned(groupID: Swift.String, message: ImSDK_Plus_Swift.V2TIMMessage, isPinned: Swift.Bool, opUser: ImSDK_Plus_Swift.V2TIMGroupMemberInfo)
+  public func onRecvMessageRevoked(msgID: Swift.String)
+}
+extension ImSDK_Plus_Swift.V2TIMSignalingListener {
+  public func onReceiveNewInvitation(inviteID: Swift.String, inviter: Swift.String, groupID: Swift.String?, inviteeList: Swift.Array<Swift.String>, data: Swift.String?)
+  public func onInviteeAccepted(inviteID: Swift.String, invitee: Swift.String, data: Swift.String?)
+  public func onInviteeRejected(inviteID: Swift.String, invitee: Swift.String, data: Swift.String?)
+  public func onInvitationCancelled(inviteID: Swift.String, inviter: Swift.String, data: Swift.String?)
+  public func onInvitationTimeout(inviteID: Swift.String, inviteeList: Swift.Array<Swift.String>)
+  public func onInvitationModified(inviteID: Swift.String, data: Swift.String?)
+}
+extension ImSDK_Plus_Swift.ERROR_CODE : Swift.Equatable {}
+extension ImSDK_Plus_Swift.ERROR_CODE : Swift.Hashable {}
+extension ImSDK_Plus_Swift.ERROR_CODE : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMCommunityPermissionValue : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMCommunityPermissionValue : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMCommunityPermissionValue : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMTopicPermissionValue : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMTopicPermissionValue : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMTopicPermissionValue : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMConversationType : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMConversationType : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMConversationType : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMGroupAtType : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMGroupAtType : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMGroupAtType : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMFriendApplicationType : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMFriendApplicationType : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMFriendApplicationType : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMFriendType : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMFriendType : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMFriendType : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMFriendRelationType : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMFriendRelationType : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMFriendRelationType : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMFriendAcceptType : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMFriendAcceptType : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMFriendAcceptType : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMFollowType : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMFollowType : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMFollowType : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMGroupAddOpt : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMGroupAddOpt : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMGroupAddOpt : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMGroupMemberResult : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMGroupMemberResult : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMGroupMemberResult : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMGroupMemberFilter : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMGroupMemberFilter : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMGroupMemberFilter : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMGroupApplicationType : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMGroupApplicationType : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMGroupApplicationType : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMGroupApplicationHandleStatus : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMGroupApplicationHandleStatus : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMGroupApplicationHandleStatus : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMGroupApplicationHandleResult : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMGroupApplicationHandleResult : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMGroupApplicationHandleResult : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMMessageStatus : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMMessageStatus : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMMessageStatus : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMElemType : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMElemType : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMElemType : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMOfflinePushFlag : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMOfflinePushFlag : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMOfflinePushFlag : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMImageType : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMImageType : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMImageType : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMGroupTipsType : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMGroupTipsType : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMGroupTipsType : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMGroupInfoChangeType : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMGroupInfoChangeType : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMGroupInfoChangeType : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMMessageGetType : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMMessageGetType : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMMessageGetType : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMReceiveMessageOpt : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMReceiveMessageOpt : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMReceiveMessageOpt : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMKeywordListMatchType : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMKeywordListMatchType : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMKeywordListMatchType : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMGroupMessageReadMembersFilter : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMGroupMessageReadMembersFilter : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMGroupMessageReadMembersFilter : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMIOSOfflinePushType : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMIOSOfflinePushType : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMIOSOfflinePushType : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMSignalingActionType : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMSignalingActionType : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMSignalingActionType : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMLoginStatus : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMLoginStatus : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMLoginStatus : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMLogLevel : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMLogLevel : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMLogLevel : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMMessagePriority : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMMessagePriority : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMMessagePriority : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMGender : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMGender : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMGender : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMFriendAllowType : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMFriendAllowType : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMFriendAllowType : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMGroupMemberRole : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMGroupMemberRole : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMGroupMemberRole : Swift.RawRepresentable {}
+extension ImSDK_Plus_Swift.V2TIMUserStatusType : Swift.Equatable {}
+extension ImSDK_Plus_Swift.V2TIMUserStatusType : Swift.Hashable {}
+extension ImSDK_Plus_Swift.V2TIMUserStatusType : Swift.RawRepresentable {}
