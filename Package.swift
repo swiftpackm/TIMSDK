@@ -9,7 +9,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "TIMSDK",
-            targets: ["TIMSDK", "ImSDK_Plus_Swift", "TPush"]),
+            targets: ["TIMSDK", "ImSDK_Plus_Swift", "TIMPush"]),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -17,7 +17,7 @@ let package = Package(
         .target(
             name: "TIMSDK"),
         .binaryTarget(name: "ImSDK_Plus_Swift", path: "./Frameworks/ImSDK_Plus_Swift.xcframework"),
-        .binaryTarget(name: "TPush", path: "./Frameworks/TPush.xcframework")
+        .binaryTarget(name: "TIMPush", path: "./Frameworks/TIMPush.xcframework")
 
     ]
 )

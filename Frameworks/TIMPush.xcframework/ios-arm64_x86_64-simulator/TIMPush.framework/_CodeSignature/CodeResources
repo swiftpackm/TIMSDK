@@ -6,31 +6,31 @@
 	<dict>
 		<key>Info.plist</key>
 		<data>
-		VmGXlOphrep953Gp+XPZ9cVRAGM=
+		IFSZ8e+qU+c68sNuhGIsqP30arQ=
 		</data>
-		<key>TPush_Privacy.bundle/Info.plist</key>
+		<key>TIMPush_Privacy.bundle/Info.plist</key>
 		<data>
-		iQ5B4AjDn+iRDP5+u5GW2PdW8GQ=
+		ZCSGnoMdODFYu9lb4htIOyRsqq0=
 		</data>
-		<key>TPush_Privacy.bundle/PrivacyInfo.xcprivacy</key>
+		<key>TIMPush_Privacy.bundle/PrivacyInfo.xcprivacy</key>
 		<data>
 		vSZc5ee7Cf+al2H8RprtWjAvhtQ=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>TPush_Privacy.bundle/Info.plist</key>
+		<key>TIMPush_Privacy.bundle/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			iQ5B4AjDn+iRDP5+u5GW2PdW8GQ=
+			ZCSGnoMdODFYu9lb4htIOyRsqq0=
 			</data>
 			<key>hash2</key>
 			<data>
-			LgONp9xKiGtEUCKQ7Gpu3mH7e6/akO8/hJ/nnGGigcc=
+			BRZ5aKKkkvoAdwoYzSPC1vbRPyTZy6L9tNvT7E86cYM=
 			</data>
 		</dict>
-		<key>TPush_Privacy.bundle/PrivacyInfo.xcprivacy</key>
+		<key>TIMPush_Privacy.bundle/PrivacyInfo.xcprivacy</key>
 		<dict>
 			<key>hash</key>
 			<data>
