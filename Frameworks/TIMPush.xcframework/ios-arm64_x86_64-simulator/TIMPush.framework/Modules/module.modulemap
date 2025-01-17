@@ -1,6 +1,0 @@
-framework module TIMPush {
-  umbrella header "TIMPush.h"
-
-  export *
-  module * { export * }
-}
