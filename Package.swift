@@ -17,9 +17,7 @@ let package = Package(
         .target(
             name: "TIMSDK"),
         .binaryTarget(name: "ImSDK_Plus_Swift", path: "./Frameworks/ImSDK_Plus_Swift.xcframework"),
-        .binaryTarget(name: "TPush",
-                      url: "https://im.sdk.qcloud.com/download/tuiplugin/8.3.6498/ios/TPush_8.3.6498.xcframework.zip",
-                      checksum: "ea1324b532e7af264f5bc716b9b68276afde9c77d0d246409057be2715d6f932")
+        .binaryTarget(name: "TPush", path: "./Frameworks/TPush.xcframework")
 
     ]
 )
